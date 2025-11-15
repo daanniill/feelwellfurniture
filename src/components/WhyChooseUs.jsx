@@ -31,15 +31,15 @@ const features = [
 
 export default function WhyChooseUs() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.15, margin: "0px 0px -50px 0px" });
 
   return (
     <motion.section
       ref={ref}
       className="py-20 px-8 bg-gray-50 dark:bg-neutral-800"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -60,16 +60,16 @@ export default function WhyChooseUs() {
               <motion.div
                 key={feature.title}
                 className="bg-white dark:bg-neutral-700 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all text-center"
-                initial={{ opacity: 0, y: 18, scale: 0.992 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={
                   isInView
-                    ? { opacity: 1, y: 0, scale: 1 }
-                    : { opacity: 0, y: 18, scale: 0.992 }
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 20 }
                 }
                 transition={{
                   duration: 0.5,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  delay: index * 0.08
+                  ease: [0.22, 0.61, 0.36, 1],
+                  delay: index * 0.1
                 }}
               >
                 <div className="flex justify-center mb-4">

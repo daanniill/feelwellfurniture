@@ -17,15 +17,15 @@ const featuredItems = products.slice(0, 3);
 
 export default function FeaturedCollection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.15, margin: "0px 0px -50px 0px" });
 
   return (
     <motion.section
       ref={ref}
       className="py-20 px-8"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-light text-center mb-12 text-gray-900 dark:text-gray-100">
@@ -36,16 +36,16 @@ export default function FeaturedCollection() {
             <motion.div
               key={product.id}
               className="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden"
-              initial={{ opacity: 0, y: 16, scale: 0.995 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={
                 isInView
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 16, scale: 0.995 }
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
               }
               transition={{
-                duration: 0.55,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                delay: index * 0.06
+                duration: 0.5,
+                ease: [0.22, 0.61, 0.36, 1],
+                delay: index * 0.1
               }}
             >
               <Link to={`/product/${product.id}`}>
