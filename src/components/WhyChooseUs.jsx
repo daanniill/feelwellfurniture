@@ -60,17 +60,16 @@ export default function WhyChooseUs() {
               <motion.div
                 key={feature.title}
                 className="bg-white dark:bg-neutral-700 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all text-center"
-                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                initial={{ opacity: 0, y: 18, scale: 0.992 }}
                 animate={
                   isInView
                     ? { opacity: 1, y: 0, scale: 1 }
-                    : { opacity: 0, y: 20, scale: 0.97 }
+                    : { opacity: 0, y: 18, scale: 0.992 }
                 }
                 transition={{
-                  type: "spring",
-                  stiffness: 160,
-                  damping: 20,
-                  delay: index * 0.1
+                  duration: 0.5,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  delay: index * 0.08
                 }}
               >
                 <div className="flex justify-center mb-4">

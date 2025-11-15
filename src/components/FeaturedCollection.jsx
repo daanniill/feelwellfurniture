@@ -36,17 +36,16 @@ export default function FeaturedCollection() {
             <motion.div
               key={product.id}
               className="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden"
-              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              initial={{ opacity: 0, y: 16, scale: 0.995 }}
               animate={
                 isInView
                   ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 20, scale: 0.98 }
+                  : { opacity: 0, y: 16, scale: 0.995 }
               }
               transition={{
-                type: "spring",
-                stiffness: 140,
-                damping: 18,
-                delay: index * 0.08
+                duration: 0.55,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: index * 0.06
               }}
             >
               <Link to={`/product/${product.id}`}>

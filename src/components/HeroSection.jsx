@@ -71,8 +71,7 @@ export default function HeroSection({ theme }) {
 
       {/* Scroll Indicator Arrow */}
       <motion.div
-        className="fixed bottom-16 z-50 pointer-events-none"
-        style={{ left: "50vw", transform: "translateX(-50%)" }}
+        className="fixed bottom-16 left-0 right-0 z-50 pointer-events-none flex justify-center"
         initial={{ opacity: 0 }}
         animate={{ 
           opacity: showArrow ? 1 : 0,
@@ -92,6 +91,7 @@ export default function HeroSection({ theme }) {
           className="text-gray-600 dark:text-gray-300"
         />
       </motion.div>
+
     </section>
   );
 }
