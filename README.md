@@ -201,12 +201,6 @@ npm run build
 
 This project is private and proprietary.
 
-## Contact
-
-For questions or support, please contact:
-- Email: clutchdev.apps@gmail.com
-- Phone: 949-910-7879
-
 ---
 
 Built with ❤️ using React and Tailwind CSS
