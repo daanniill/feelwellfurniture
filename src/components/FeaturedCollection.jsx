@@ -25,17 +25,29 @@ export default function FeaturedCollection() {
       className="py-20 px-8"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-light text-center mb-12 text-gray-900 dark:text-gray-100">
           Featured Collection
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          {featuredItems.map((product) => (
-            <div
+          {featuredItems.map((product, index) => (
+            <motion.div
               key={product.id}
               className="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={
+                isInView
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: 20, scale: 0.98 }
+              }
+              transition={{
+                type: "spring",
+                stiffness: 140,
+                damping: 18,
+                delay: index * 0.08
+              }}
             >
               <Link to={`/product/${product.id}`}>
                 <img
@@ -104,7 +116,7 @@ export default function FeaturedCollection() {
                   Buy Now →
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="text-center">

@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
       className="py-20 px-8 bg-gray-50 dark:bg-neutral-800"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -60,12 +60,17 @@ export default function WhyChooseUs() {
               <motion.div
                 key={feature.title}
                 className="bg-white dark:bg-neutral-700 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all text-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ 
-                  duration: 1.2, 
-                  delay: index * 0.15, 
-                  ease: [0.22, 1, 0.36, 1] 
+                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, y: 0, scale: 1 }
+                    : { opacity: 0, y: 20, scale: 0.97 }
+                }
+                transition={{
+                  type: "spring",
+                  stiffness: 160,
+                  damping: 20,
+                  delay: index * 0.1
                 }}
               >
                 <div className="flex justify-center mb-4">

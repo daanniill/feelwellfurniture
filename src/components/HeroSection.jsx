@@ -53,16 +53,16 @@ export default function HeroSection({ theme }) {
       >
         <h1 className="text-5xl font-light mb-2 text-gray-900 dark:text-gray-100">FeelWellFurniture</h1>
         <p className="text-gray-700 dark:text-gray-300 mb-6">Where Comfort Meets Style</p>
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
           <Link
             to="/collection"
-            className="bg-black dark:bg-white dark:text-black text-white px-8 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-medium"
+            className="w-full sm:w-auto text-center bg-black dark:bg-white dark:text-black text-white px-8 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-medium"
           >
             Explore Collection
           </Link>
           <Link
             to="/contact"
-            className="bg-transparent border-2 border-black dark:border-white dark:text-white text-black px-8 py-3 rounded-full hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all font-medium"
+            className="w-full sm:w-auto text-center bg-transparent border-2 border-black dark:border-white dark:text-white text-black px-8 py-3 rounded-full hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all font-medium"
           >
             Get in Touch
           </Link>
@@ -71,7 +71,8 @@ export default function HeroSection({ theme }) {
 
       {/* Scroll Indicator Arrow */}
       <motion.div
-        className="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+        className="fixed bottom-16 z-50 pointer-events-none"
+        style={{ left: "50vw", transform: "translateX(-50%)" }}
         initial={{ opacity: 0 }}
         animate={{ 
           opacity: showArrow ? 1 : 0,
