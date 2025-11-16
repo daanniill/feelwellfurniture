@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { Sparkles, Truck, Shield, Palette } from "lucide-react";
 
 const features = [
@@ -34,12 +34,9 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, amount: 0.15, margin: "0px 0px -50px 0px" });
 
   return (
-    <motion.section
+    <section
       ref={ref}
-      className="py-20 px-8 bg-gray-50 dark:bg-neutral-800"
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+      className={`py-20 px-8 bg-gray-50 dark:bg-neutral-800 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -80,7 +77,7 @@ export default function WhyChooseUs() {
           })}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

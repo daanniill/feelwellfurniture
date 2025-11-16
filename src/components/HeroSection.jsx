@@ -9,7 +9,7 @@ export default function HeroSection({ theme }) {
 
   // Scroll to top when component mounts/fades in
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   // Check if HeroSection is visible and handle arrow visibility
@@ -39,7 +39,7 @@ export default function HeroSection({ theme }) {
   return (
     <section
       ref={sectionRef}
-      className={`relative h-screen flex items-center justify-center overflow-hidden ${
+      className={`relative min-h-screen -mt-[72px] pt-[72px] flex items-center justify-center overflow-hidden ${
         theme === "dark" 
           ? "bg-gradient-to-b from-neutral-700 to-neutral-900" 
           : "bg-gradient-to-b from-[#c3c2bf] to-white"
@@ -74,7 +74,8 @@ export default function HeroSection({ theme }) {
 
       {/* Scroll Indicator Arrow */}
       <motion.div
-        className="fixed bottom-16 left-0 right-0 z-50 pointer-events-none flex justify-center safari-motion-fix"
+        className="absolute left-0 right-0 z-50 pointer-events-none flex justify-center safari-motion-fix"
+        style={{ bottom: '8rem' }}
         initial={{ opacity: 0 }}
         animate={{ 
           opacity: showArrow ? 1 : 0,

@@ -4,6 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: auto;
+}
+
+html {
+  scroll-padding-top: 0;
+}
+
 body {
   @apply bg-white text-gray-800 font-sans;
 }
@@ -15,19 +32,28 @@ body {
 
 /* Fade in animation - replaces Framer Motion for Safari stability */
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
     transform: translate3d(0, 20px, 0);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-fade-in {
-  animation: fadeInUp 0.5s ease-out forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Staggered delays for cards */

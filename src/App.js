@@ -15,7 +15,7 @@ function AnimatedRoutes({ theme }) {
 
   // Scroll to top on route change
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [location.pathname]);
 
   // Page transition animation variants
@@ -34,7 +34,7 @@ function AnimatedRoutes({ theme }) {
         animate="animate"
         exit="exit"
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="flex-grow"
+        className="flex-grow pt-[72px]"
       >
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home theme={theme} />} />
@@ -51,6 +51,11 @@ function AnimatedRoutes({ theme }) {
 function App() {
   // Light/Dark mode
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  // Force scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");

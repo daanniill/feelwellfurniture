@@ -37,7 +37,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <nav
-      className={`relative flex justify-between items-center px-6 sm:px-8 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-sm sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 flex justify-between items-center px-6 sm:px-8 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 ${
         isMobileView ? "py-3" : "py-4"
       }`}
     >
