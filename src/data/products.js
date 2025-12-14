@@ -1,4 +1,18 @@
-// Bed images
+// Bed images - New AI generated images (front images)
+import bed1_int from "../assets/ai_img/bed1_int.png";
+import bed2_int from "../assets/ai_img/bed2_int.png";
+import bed3_int from "../assets/ai_img/bed3_int.png";
+import bed4_int from "../assets/ai_img/bed4_int.png";
+import bed5_int from "../assets/ai_img/bed5_int.png";
+import bed6_int from "../assets/ai_img/bed6_int.png";
+import bed7_int from "../assets/ai_img/bed7_int.png";
+import bed8_int from "../assets/ai_img/bed8_int.png";
+import bed9_int from "../assets/ai_img/bed9_int.png";
+import bed10_int from "../assets/ai_img/bed10_int.png";
+import bedeleven_int from "../assets/ai_img/bedeleven_int.png";
+import bed12_int from "../assets/ai_img/bed12_int.png";
+
+// Bed images - Original images
 import bed1 from "../assets/images/bed1.png";
 import bed11 from "../assets/images/bed11.png";
 import bed111 from "../assets/images/bed111.png";
@@ -36,7 +50,16 @@ import bed13 from "../assets/images/bed13.png";
 import bed1313 from "../assets/images/bed1313.png";
 import bed131313 from "../assets/images/bed131313.png";
 
-// Sofa images
+// Sofa images - New AI generated images (front images)
+import sofa1_int from "../assets/ai_img/Sofa 1.PNG";
+import sofa2_int from "../assets/ai_img/Sofa 2.PNG";
+import sofa3_int from "../assets/ai_img/Sofa 3.PNG";
+import sofa4_int from "../assets/ai_img/Sofa 4.PNG";
+import sofa5_int from "../assets/ai_img/Sofa 5.PNG";
+import sofa6_int from "../assets/ai_img/Sofa 6.PNG";
+import sofa7_int from "../assets/ai_img/Sofa 7.PNG";
+
+// Sofa images - Original images
 import sofa1 from "../assets/images/sofa1.png";
 import sofa11 from "../assets/images/sofa11.png";
 import sofa111 from "../assets/images/sofa111.png";
@@ -84,7 +107,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed1, bed11, bed111]
+    images: [bed1_int, bed1, bed11, bed111]
   },
   {
     id: "BY-23-41-bed",
@@ -109,7 +132,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed2, bed22, bed222]
+    images: [bed2_int, bed2, bed22, bed222]
   },
   {
     id: "cp24-14-bed-2",
@@ -134,7 +157,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed3, bed33, bed333]
+    images: [bed3_int, bed3, bed33, bed333]
   },
   {
     id: "cp24-14-bed-3",
@@ -159,7 +182,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed4, bed44, bed444]
+    images: [bed4_int, bed4, bed44, bed444]
   },
   {
     id: "cp24-14-bed-4",
@@ -184,7 +207,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed5, bed55, bed555]
+    images: [bed5_int, bed5, bed55, bed555]
   },
   {
     id: "cp24-14-bed-5",
@@ -209,7 +232,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed6, bed66]
+    images: [bed6_int, bed6, bed66]
   },
   {
     id: "cp24-14-bed-6",
@@ -234,7 +257,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed7, bed77]
+    images: [bed7_int, bed7, bed77]
   },
   {
     id: "cp24-14-bed-7",
@@ -259,7 +282,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed8, bed88]
+    images: [bed8_int, bed8, bed88]
   },
   {
     id: "cp24-14-bed-8",
@@ -284,7 +307,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed9, bed99, bed999]
+    images: [bed9_int, bed9, bed99, bed999]
   },
   {
     id: "cp24-14-bed-9",
@@ -309,7 +332,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed10, bed1010, bed101010]
+    images: [bed10_int, bed10, bed1010, bed101010]
   },
   {
     id: "cp24-14-bed-10",
@@ -334,7 +357,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bedeleven, bedeleven1, bedeleven11]
+    images: [bedeleven_int, bedeleven, bedeleven1, bedeleven11]
   },
   {
     id: "cp24-14-bed-11",
@@ -359,7 +382,7 @@ export const products = [
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
-    images: [bed12, bed1212, bed121212]
+    images: [bed12_int, bed12, bed1212, bed121212]
   },
   {
     id: "cp24-14-bed-12",
@@ -409,7 +432,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa1, sofa11, sofa111]
+    images: [sofa1_int, sofa1, sofa11, sofa111]
   },
   {
     id: "cp24-14-sofa-2",
@@ -434,7 +457,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa2, sofa22, sofa222]
+    images: [sofa2_int, sofa2, sofa22, sofa222]
   },
   {
     id: "cp24-14-sofa-3",
@@ -459,7 +482,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa3, sofa33, sofa333]
+    images: [sofa3_int, sofa3, sofa33, sofa333]
   },
   {
     id: "cp24-14-sofa-7",
@@ -484,7 +507,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa4, sofa44, sofa444]
+    images: [sofa4_int, sofa4, sofa44, sofa444]
   },
   {
     id: "cp24-14-sofa-8",
@@ -509,7 +532,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa5, sofa55, sofa555]
+    images: [sofa5_int, sofa5, sofa55, sofa555]
   },
   {
     id: "cp24-14-sofa-5",
@@ -534,7 +557,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa6, sofa66, sofa666]
+    images: [sofa6_int, sofa6, sofa66, sofa666]
   },
   {
     id: "cp24-14-sofa-9",
@@ -559,7 +582,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa7, sofa77, sofa777]
+    images: [sofa7_int, sofa7, sofa77, sofa777]
   }
 ];
 
