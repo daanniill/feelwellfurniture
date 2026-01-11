@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { getProductById } from "../data/products";
 
 const colorMap = {
@@ -17,6 +18,28 @@ export default function Product() {
   const navigate = useNavigate();
   const product = getProductById(id);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
+
+  const handleZoomToggle = () => {
+    setIsZoomed(!isZoomed);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isZoomed) return;
+    
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    
+    setZoomPosition({ x, y });
+  };
+
+  // Reset zoom when image changes
+  useEffect(() => {
+    setIsZoomed(false);
+    setZoomPosition({ x: 50, y: 50 });
+  }, [selectedImage]);
 
   if (!product) {
     return (
@@ -49,19 +72,71 @@ export default function Product() {
         <div className="grid lg:grid-cols-2 gap-12 lg:h-[calc(100vh-12rem)]">
           {/* Image Gallery - Left */}
           <div className="space-y-4">
-            <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100 dark:bg-neutral-800">
-              <img
-                src={product.images[selectedImage]}
-                alt={product.title}
-                className="w-full h-full object-contain"
-              />
+            <div 
+              className={`aspect-square overflow-hidden rounded-2xl relative ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+              onClick={handleZoomToggle}
+              onMouseMove={handleMouseMove}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={selectedImage}
+                  src={product.images[selectedImage]}
+                  alt={product.title}
+                  className="w-full h-full object-contain"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: isZoomed ? 2.5 : 1,
+                    x: isZoomed ? `${(50 - zoomPosition.x) * 1.5}%` : '0%',
+                    y: isZoomed ? `${(50 - zoomPosition.y) * 1.5}%` : '0%'
+                  }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ 
+                    opacity: { duration: 0.3, ease: "easeInOut" },
+                    scale: { duration: 0.3, ease: "easeInOut" },
+                    x: { duration: 0 },
+                    y: { duration: 0 }
+                  }}
+                />
+              </AnimatePresence>
+              
+              {/* Navigation Buttons */}
+              {product.images.length > 1 && !isZoomed && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImage((prev) => (prev === 0 ? product.images.length - 1 : prev - 1));
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-neutral-700 transition-all shadow-lg flex items-center justify-center text-gray-900 dark:text-gray-100 z-10 cursor-pointer"
+                    aria-label="Previous image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImage((prev) => (prev === product.images.length - 1 ? 0 : prev + 1));
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-neutral-700 transition-all shadow-lg flex items-center justify-center text-gray-900 dark:text-gray-100 z-10 cursor-pointer"
+                    aria-label="Next image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                </>
+              )}
             </div>
             <div className="grid grid-cols-3 gap-4">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-neutral-800 ${
+                  className={`aspect-square overflow-hidden rounded-lg ${
                     selectedImage === index
                       ? "ring-2 ring-black dark:ring-white"
                       : "opacity-70 hover:opacity-100"
