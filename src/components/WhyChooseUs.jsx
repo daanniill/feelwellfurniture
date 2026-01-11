@@ -41,10 +41,10 @@ export default function WhyChooseUs() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+          <h2 className="text-4xl font-gilroy-extrabold mb-3 text-gray-900 dark:text-gray-100">
             Why Choose Us
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg font-gilroy-regular text-gray-600 dark:text-gray-300">
             Excellence in every detail
           </p>
         </div>
@@ -66,10 +66,10 @@ export default function WhyChooseUs() {
                     className={feature.iconColor}
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-gilroy-extrabold mb-3 text-gray-900 dark:text-gray-100">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

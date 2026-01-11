@@ -155,17 +155,17 @@ export default function Product() {
           {/* Product Details - Right */}
           <div className="space-y-8 overflow-y-auto p-6 border border-gray-200 dark:border-neutral-700 rounded-2xl custom-scrollbar">
             {/* Category */}
-            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-gilroy-medium">
               {product.category}
             </p>
 
             {/* Title */}
-            <h1 className="text-4xl font-light text-gray-900 dark:text-gray-100">
+            <h1 className="text-4xl font-gilroy-extrabold text-gray-900 dark:text-gray-100">
               {product.title}
             </h1>
 
             {/* Price */}
-            <p className="text-3xl font-light text-gray-900 dark:text-gray-100">
+            <p className="text-3xl font-gilroy-medium text-gray-900 dark:text-gray-100">
               {product.price}
             </p>
 
@@ -176,7 +176,7 @@ export default function Product() {
 
             {/* Dimensions */}
             <div>
-              <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                 Dimensions
               </h3>
               <p className="text-gray-600 dark:text-gray-300">{product.dimensions}</p>
@@ -184,7 +184,7 @@ export default function Product() {
 
             {/* Materials */}
             <div>
-              <h3 className="text-lg font-medium mb-3 text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
                 Materials
               </h3>
               <ul className="space-y-1">
@@ -198,7 +198,7 @@ export default function Product() {
 
             {/* Available Colors */}
             <div>
-              <h3 className="text-lg font-medium mb-3 text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
                 Available Colors
               </h3>
               <div className="flex flex-wrap gap-4">
@@ -216,7 +216,7 @@ export default function Product() {
 
             {/* Key Features */}
             <div>
-              <h3 className="text-lg font-medium mb-3 text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
                 Key Features
               </h3>
               <ul className="space-y-2">
@@ -231,7 +231,7 @@ export default function Product() {
 
             {/* Specifications */}
             <div>
-              <h3 className="text-lg font-medium mb-3 text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
                 Specifications
               </h3>
               <dl className="space-y-2">
@@ -249,7 +249,7 @@ export default function Product() {
             {/* Inquire Button */}
             <button 
               onClick={() => navigate("/contact")}
-              className="w-full bg-black dark:bg-white dark:text-black text-white px-8 py-4 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-medium text-lg"
+              className="w-full bg-black dark:bg-white dark:text-black text-white px-8 py-4 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-gilroy-medium text-lg"
             >
               Inquire about this product
             </button>

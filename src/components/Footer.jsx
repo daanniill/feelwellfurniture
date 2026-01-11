@@ -32,7 +32,7 @@ export default function Footer() {
               <span className="font-gilroy-extrabold uppercase text-xl">FEELWELL</span>
               <span className="font-gilroy-regular lowercase text-lg -mt-0.5">Furniture</span>
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300">
               Where Comfort Meets Style
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="flex items-center gap-2 text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -61,13 +61,13 @@ export default function Footer() {
           <div className="text-center">
             <a
               href="tel:888-888-8888"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
+              className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
             >
               888-888-8888
             </a>
             <a
               href="mailto:sample@gmail.com"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
+              className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
             >
               sample@gmail.com
             </a>
@@ -75,7 +75,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="pt-4 border-t border-gray-200 dark:border-neutral-800">
-            <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center flex-wrap gap-1">
+            <p className="text-xs font-gilroy-regular text-gray-500 dark:text-gray-400 flex items-center justify-center flex-wrap gap-1">
               © 2025 <span className="font-gilroy-extrabold uppercase">FEELWELL</span><span className="font-gilroy-regular lowercase">Furniture</span>. All rights reserved.
             </p>
           </div>

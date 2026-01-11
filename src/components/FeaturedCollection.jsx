@@ -25,7 +25,7 @@ export default function FeaturedCollection() {
       className={`py-20 px-8 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-light text-center mb-12 text-gray-900 dark:text-gray-100">
+        <h2 className="text-3xl font-gilroy-extrabold text-center mb-12 text-gray-900 dark:text-gray-100">
           Featured Collection
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
@@ -45,20 +45,20 @@ export default function FeaturedCollection() {
               </Link>
               <div className="p-6">
                 {/* Category */}
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 font-gilroy-medium">
                   {product.category}
                 </p>
                 
                 {/* Title */}
                 <Link to={`/product/${product.id}`}>
-                  <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3 hover:underline">
+                  <h3 className="text-xl font-gilroy-extrabold text-gray-900 dark:text-gray-100 mb-3 hover:underline">
                     {product.title}
                   </h3>
                 </Link>
                 
                 {/* Material */}
                 <div className="mb-3">
-                  <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <p className="text-xs font-gilroy-medium text-gray-700 dark:text-gray-300 mb-1">
                     Material:
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -68,7 +68,7 @@ export default function FeaturedCollection() {
                 
                 {/* Colors */}
                 <div className="mb-4">
-                  <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <p className="text-xs font-gilroy-medium text-gray-700 dark:text-gray-300 mb-2">
                     Available Colors:
                   </p>
                   <div className="flex gap-2 flex-wrap">
@@ -91,7 +91,7 @@ export default function FeaturedCollection() {
                 </div>
                 
                 {/* Price */}
-                <p className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-4">
+                <p className="text-2xl font-gilroy-medium text-gray-900 dark:text-gray-100 mb-4">
                   {product.price}
                 </p>
                 
@@ -109,7 +109,7 @@ export default function FeaturedCollection() {
         <div className="text-center">
           <Link
             to="/collection"
-            className="inline-block bg-black dark:bg-white dark:text-black text-white px-8 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-medium"
+            className="inline-block bg-black dark:bg-white dark:text-black text-white px-8 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-gilroy-medium"
           >
             View Full Collection
           </Link>

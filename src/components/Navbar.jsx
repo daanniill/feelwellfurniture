@@ -22,7 +22,7 @@ export default function Navbar({ theme, setTheme }) {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinkClass = ({ isActive }) =>
-    `px-4 py-2 text-sm font-medium transition-all block ${
+    `px-4 py-2 text-sm font-gilroy-medium transition-all block ${
       isActive
         ? "text-black dark:text-white border-b-2 border-black dark:border-white"
         : "text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white"
