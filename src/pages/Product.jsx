@@ -37,7 +37,7 @@ export default function Product() {
   }
 
   return (
-    <div className="min-h-screen py-16 px-8">
+    <div className="min-h-screen py-16 px-8 mb-16">
       <div className="max-w-7xl mx-auto">
         <button
           onClick={() => navigate(-1)}
@@ -46,7 +46,7 @@ export default function Product() {
           ← Back
         </button>
         
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:h-[calc(100vh-12rem)]">
           {/* Image Gallery - Left */}
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100 dark:bg-neutral-800">
@@ -78,7 +78,7 @@ export default function Product() {
           </div>
 
           {/* Product Details - Right */}
-          <div className="space-y-8">
+          <div className="space-y-8 overflow-y-auto p-6 border border-gray-200 dark:border-neutral-700 rounded-2xl custom-scrollbar">
             {/* Category */}
             <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">
               {product.category}
