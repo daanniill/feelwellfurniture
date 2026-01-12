@@ -246,6 +246,27 @@ export default function Product() {
               </dl>
             </div>
 
+            {/* Delivery Information */}
+            <div className="bg-gray-50 dark:bg-neutral-700 p-4 rounded-xl">
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
+                Delivery & Returns
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-start text-gray-600 dark:text-gray-300">
+                  <span className="mr-2 text-gray-900 dark:text-gray-100">•</span>
+                  <span>Shipping costs provided upon quote request</span>
+                </li>
+                <li className="flex items-start text-gray-600 dark:text-gray-300">
+                  <span className="mr-2 text-gray-900 dark:text-gray-100">•</span>
+                  <span>Standard delivery timeframe: 30 business days</span>
+                </li>
+                <li className="flex items-start text-gray-600 dark:text-gray-300">
+                  <span className="mr-2 text-gray-900 dark:text-gray-100">•</span>
+                  <span>Comprehensive 30-day return guarantee</span>
+                </li>
+              </ul>
+            </div>
+
             {/* Inquire Button */}
             <button 
               onClick={() => navigate("/contact")}
