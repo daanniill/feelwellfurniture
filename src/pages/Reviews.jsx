@@ -23,7 +23,7 @@ export default function Reviews() {
   return (
     <div className="py-20 px-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-light text-center mb-12 text-gray-900 dark:text-gray-100">
+        <h2 className="text-3xl font-gilroy-extrabold text-center mb-12 text-gray-900 dark:text-gray-100">
           Customer Reviews
         </h2>
         
@@ -44,12 +44,12 @@ export default function Reviews() {
                 ))}
               </div>
               
-              <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
+              <p className="font-gilroy-regular text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                 "{review.text}"
               </p>
               
               <div className="flex flex-col">
-                <p className="font-medium text-gray-900 dark:text-gray-100">
+                <p className="font-gilroy-medium text-gray-900 dark:text-gray-100">
                   {review.name}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">

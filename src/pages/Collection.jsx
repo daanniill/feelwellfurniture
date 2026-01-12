@@ -24,7 +24,7 @@ export default function Collection() {
 
   return (
     <div className="px-8 py-16">
-      <h2 className="text-3xl font-light text-center mb-10 text-gray-900 dark:text-gray-100">
+      <h2 className="text-3xl font-gilroy-extrabold text-center mb-10 text-gray-900 dark:text-gray-100">
         Our Collection
       </h2>
 
@@ -34,7 +34,7 @@ export default function Collection() {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-6 py-2 rounded-full font-medium transition-all ${
+            className={`px-6 py-2 rounded-full font-gilroy-medium transition-all ${
               activeCategory === category
                 ? "bg-black dark:bg-white text-white dark:text-black"
                 : "bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-neutral-700"
@@ -61,20 +61,20 @@ export default function Collection() {
             </Link>
             <div className="p-6">
               {/* Category */}
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 font-gilroy-medium">
                 {product.category}
               </p>
               
               {/* Title */}
               <Link to={`/product/${product.id}`}>
-                <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-3 hover:underline">
+                <h3 className="text-xl font-gilroy-extrabold text-gray-900 dark:text-gray-100 mb-3 hover:underline">
                   {product.title}
                 </h3>
               </Link>
               
               {/* Material */}
               <div className="mb-3">
-                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <p className="text-xs font-gilroy-medium text-gray-700 dark:text-gray-300 mb-1">
                   Material:
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -84,7 +84,7 @@ export default function Collection() {
               
               {/* Colors */}
               <div className="mb-4">
-                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-xs font-gilroy-medium text-gray-700 dark:text-gray-300 mb-2">
                   Available Colors:
                 </p>
                 <div className="flex gap-2 flex-wrap">
@@ -107,7 +107,7 @@ export default function Collection() {
               </div>
               
               {/* Price */}
-              <p className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-4">
+              <p className="text-2xl font-gilroy-medium text-gray-900 dark:text-gray-100 mb-4">
                 {product.price}
               </p>
               

@@ -4,10 +4,10 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-light mb-4 text-gray-900 dark:text-gray-100">
+          <h2 className="text-3xl font-gilroy-extrabold mb-4 text-gray-900 dark:text-gray-100">
             Get in Touch
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="font-gilroy-regular text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a question or want to learn more about our furniture? We'd love to hear from you.
           </p>
         </div>
@@ -15,12 +15,12 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <h3 className="text-2xl font-light mb-6 text-gray-900 dark:text-gray-100">
+            <h3 className="text-2xl font-gilroy-extrabold mb-6 text-gray-900 dark:text-gray-100">
               Send us a Message
             </h3>
             <form className="flex flex-col gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100">
+                <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -32,7 +32,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100">
+                <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -44,7 +44,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100">
+                <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Phone <span className="text-gray-500 dark:text-gray-400 text-xs">(Optional)</span>
                 </label>
                 <input
@@ -55,7 +55,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100">
+                <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Subject <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -67,7 +67,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100">
+                <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -80,7 +80,7 @@ export default function Contact() {
               
               <button
                 type="submit"
-                className="bg-black dark:bg-white dark:text-black text-white py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-medium mt-2"
+                className="bg-black dark:bg-white dark:text-black text-white py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-gilroy-medium mt-2"
               >
                 Send Message
               </button>
@@ -89,10 +89,10 @@ export default function Contact() {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-light mb-6 text-gray-900 dark:text-gray-100">
+            <h3 className="text-2xl font-gilroy-extrabold mb-6 text-gray-900 dark:text-gray-100">
               Contact Information
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <p className="font-gilroy-regular text-gray-600 dark:text-gray-300 mb-8">
               Reach out to us through any of these channels. We're here to help!
             </p>
 
@@ -101,7 +101,7 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <span className="text-2xl">📞</span>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100 mb-1">Phone</p>
+                  <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Phone</p>
                   <a
                     href="tel:888-888-8888"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -115,7 +115,7 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <span className="text-2xl">✉️</span>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100 mb-1">Email</p>
+                  <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Email</p>
                   <a
                     href="mailto:sample@gmail.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -129,7 +129,7 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100 mb-1">Address</p>
+                  <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Address</p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=San+Francisco,+California"
                     target="_blank"
@@ -144,7 +144,7 @@ export default function Contact() {
 
             {/* Business Hours */}
             <div>
-              <h4 className="text-lg font-medium mb-4 text-gray-900 dark:text-gray-100">
+              <h4 className="text-lg font-gilroy-medium mb-4 text-gray-900 dark:text-gray-100">
                 Business Hours
               </h4>
               <div className="space-y-2 text-gray-600 dark:text-gray-300">

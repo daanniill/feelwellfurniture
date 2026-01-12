@@ -22,7 +22,7 @@ export default function Navbar({ theme, setTheme }) {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinkClass = ({ isActive }) =>
-    `px-4 py-2 text-sm font-medium transition-all block ${
+    `px-4 py-2 text-sm font-gilroy-medium transition-all block ${
       isActive
         ? "text-black dark:text-white border-b-2 border-black dark:border-white"
         : "text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white"
@@ -37,7 +37,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 flex justify-between items-center px-6 sm:px-8 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 flex justify-between items-center px-6 sm:px-8 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm shadow-lg z-50 transition-all duration-300 ${
         isMobileView ? "py-3" : "py-4"
       }`}
     >
@@ -87,7 +87,7 @@ export default function Navbar({ theme, setTheme }) {
       </div>
 
       <div
-        className={`md:hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-neutral-900 shadow-lg rounded-lg py-4 px-6 space-y-2 transform origin-top transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-neutral-800 shadow-lg rounded-lg py-4 px-6 space-y-2 transform origin-top transition-all duration-300 ${
           isMenuOpen
             ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
             : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
