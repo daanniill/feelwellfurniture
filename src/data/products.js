@@ -85,13 +85,13 @@ import sofa777 from "../assets/images/sofa777.png";
 
 export const products = [
   {
-    id: "cp24-14-bed-1",
+    id: "cp22-89-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP22-89 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -114,9 +114,9 @@ export const products = [
     category: "Beds",
     title: "BY-23-41 Bed",
     price: "$515",
-    description: "Luxurious leather bed with premium foam and oak wood frame",
+    description: "Premium nanotechnology fabric bed with memory foam",
     dimensions: "94×85×44in",
-    materials: ["Premium Leather", "Memory Foam", "Oak Wood Frame"],
+    materials: ["Nanotechnology Fabric", "Memory Foam", "Pine Timber Frame"],
     colors: ["Brown", "Black", "Gray"],
     keyFeatures: [
       "79×79in Specification",
@@ -135,13 +135,13 @@ export const products = [
     images: [bed2_int, bed2, bed22, bed222]
   },
   {
-    id: "cp24-14-bed-2",
+    id: "cp24-41-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-41 Bed",
     price: "$487",
-    description: "Elegant leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Tan", "Charcoal"],
     keyFeatures: [
       "71×79in Specification",
@@ -160,13 +160,13 @@ export const products = [
     images: [bed3_int, bed3, bed33, bed333]
   },
   {
-    id: "cp24-14-bed-3",
+    id: "cp23-58-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP23-58 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Black", "Brown", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -185,13 +185,13 @@ export const products = [
     images: [bed4_int, bed4, bed44, bed444]
   },
   {
-    id: "cp24-14-bed-4",
+    id: "cp24-60-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-60 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Walnut"],
     keyFeatures: [
       "71×79in Specification",
@@ -210,13 +210,13 @@ export const products = [
     images: [bed5_int, bed5, bed55, bed555]
   },
   {
-    id: "cp24-14-bed-5",
+    id: "cp24-04-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-04 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Tan", "Brown", "Charcoal"],
     keyFeatures: [
       "71×79in Specification",
@@ -235,13 +235,13 @@ export const products = [
     images: [bed6_int, bed6, bed66]
   },
   {
-    id: "cp24-14-bed-6",
+    id: "cp24-65-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-65 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -260,13 +260,13 @@ export const products = [
     images: [bed7_int, bed7, bed77]
   },
   {
-    id: "cp24-14-bed-7",
+    id: "cp24-46-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-46 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame"  ,
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -285,13 +285,13 @@ export const products = [
     images: [bed8_int, bed8, bed88]
   },
   {
-    id: "cp24-14-bed-8",
+    id: "cp24-18-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-18 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -310,13 +310,13 @@ export const products = [
     images: [bed9_int, bed9, bed99, bed999]
   },
   {
-    id: "cp24-14-bed-9",
+    id: "cp24-23-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-23 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -335,13 +335,13 @@ export const products = [
     images: [bed10_int, bed10, bed1010, bed101010]
   },
   {
-    id: "cp24-14-bed-10",
+      id: "cp24-27-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
+    title: "CP24-27 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -360,13 +360,13 @@ export const products = [
     images: [bedeleven_int, bedeleven, bedeleven1, bedeleven11]
   },
   {
-    id: "cp24-14-bed-11",
+    id: "cp24-14-bed",
     category: "Beds",
     title: "CP24-14 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
-    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
+    materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "71×79in Specification",
@@ -385,11 +385,11 @@ export const products = [
     images: [bed12_int, bed12, bed1212, bed121212]
   },
   {
-    id: "cp24-14-bed-12",
+    id: "cp24-14-bed",
     category: "Beds",
     title: "CP24-14 Bed",
     price: "$487",
-    description: "Premium leather bed with high-resilience foam and Russian larch wood frame",
+    description: "Premium leather bed with high-resilience foam and pine timber frame",
     dimensions: "93×83×43in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Black", "Tan"],
