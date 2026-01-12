@@ -23,7 +23,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-8 bg-gray-100 dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-800">
+    <footer className="py-8 bg-gray-100 dark:bg-neutral-800 border-t border-gray-200 dark:border-neutral-700">
       <div className="max-w-4xl mx-auto px-8">
         <div className="flex flex-col items-center gap-6">
           {/* Brand Section */}
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="pt-4 border-t border-gray-200 dark:border-neutral-800">
+          <div className="pt-4 border-t border-gray-200 dark:border-neutral-700">
             <p className="text-xs font-gilroy-regular text-gray-500 dark:text-gray-400 flex items-center justify-center flex-wrap gap-1">
               © 2025 <span className="font-gilroy-extrabold uppercase">FEELWELL</span><span className="font-gilroy-regular lowercase">Furniture</span>. All rights reserved.
             </p>

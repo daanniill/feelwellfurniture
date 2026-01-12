@@ -64,7 +64,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen flex flex-col transition-colors duration-300 ${theme === "dark" ? "bg-neutral-900 text-gray-100" : "bg-white text-gray-800"}`}>
+      <div className={`min-h-screen flex flex-col transition-colors duration-300 ${theme === "dark" ? "bg-neutral-800 text-gray-100" : "bg-white text-gray-800"}`}>
         <Navbar theme={theme} setTheme={setTheme} />
         <AnimatedRoutes theme={theme} />
         <Footer />

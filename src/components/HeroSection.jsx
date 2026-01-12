@@ -41,7 +41,7 @@ export default function HeroSection({ theme }) {
       ref={sectionRef}
       className={`relative min-h-screen -mt-[72px] pt-[72px] flex items-center justify-center overflow-hidden ${
         theme === "dark" 
-          ? "bg-gradient-to-b from-neutral-700 to-neutral-900" 
+          ? "bg-gradient-to-b from-neutral-700 to-neutral-800" 
           : "bg-gradient-to-b from-[#c3c2bf] to-white"
       }`}
     >
