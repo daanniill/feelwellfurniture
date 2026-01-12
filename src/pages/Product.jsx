@@ -131,12 +131,12 @@ export default function Product() {
                 </>
               )}
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:flex sm:gap-4 sm:overflow-x-auto sm:py-4 sm:justify-center">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square overflow-hidden rounded-lg ${
+                  className={`aspect-square sm:flex-shrink-0 sm:w-32 sm:h-32 overflow-hidden rounded-lg ${
                     selectedImage === index
                       ? "ring-2 ring-black dark:ring-white"
                       : "opacity-70 hover:opacity-100"
