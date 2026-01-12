@@ -88,23 +88,23 @@ export const products = [
     id: "cp22-89-bed",
     category: "Beds",
     title: "CP22-89 Bed",
-    price: "$487",
+    price: "$649",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "96×85×46in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "76×82in Specification",
+      "18in Headboard",
+      "12in Mattress",
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      size: "76×82in",
+      externalDimensions: "96×85×46in",
+      headboard: "18in",
+      mattress: "12in",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed1_int, bed1, bed11, bed111]
@@ -113,23 +113,23 @@ export const products = [
     id: "BY-23-41-bed",
     category: "Beds",
     title: "BY-23-41 Bed",
-    price: "$515",
+    price: "$725",
     description: "Premium nanotechnology fabric bed with memory foam",
-    dimensions: "94×85×44in",
+    dimensions: "98×88×42in",
     materials: ["Nanotechnology Fabric", "Memory Foam", "Pine Timber Frame"],
     colors: ["Brown", "Black", "Gray"],
     keyFeatures: [
-      "79×79in Specification",
-      "18in Headboard",
-      "12in Mattress",
-      "2in Head/Foot Legs"
+      "79×80in Specification",
+      "17in Headboard",
+      "11in Mattress",
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "79×79in",
-      externalDimensions: "94×85×44in",
-      headboard: "18in",
-      mattress: "12in",
-      legs: "2in head, 2in foot",
+      size: "79×80in",
+      externalDimensions: "98×88×42in",
+      headboard: "17in",
+      mattress: "11in",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed2_int, bed2, bed22, bed222]
@@ -138,22 +138,22 @@ export const products = [
     id: "cp24-41-bed",
     category: "Beds",
     title: "CP24-41 Bed",
-    price: "$487",
+    price: "$589",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "91×81×44in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Tan", "Charcoal"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
+      "73×78in Specification",
+      "19in Headboard",
+      "11in Mattress",
       "2in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
+      size: "73×78in",
+      externalDimensions: "91×81×44in",
+      headboard: "19in",
+      mattress: "11in",
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
@@ -163,23 +163,23 @@ export const products = [
     id: "cp23-58-bed",
     category: "Beds",
     title: "CP23-58 Bed",
-    price: "$487",
+    price: "$799",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "95×86×40in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Black", "Brown", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "75×81in Specification",
+      "15in Headboard",
+      "9in Mattress",
+      "4in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      size: "75×81in",
+      externalDimensions: "95×86×40in",
+      headboard: "15in",
+      mattress: "9in",
+      legs: "4in head, 4in foot",
       binding: "Machine molding side"
     },
     images: [bed4_int, bed4, bed44, bed444]
@@ -188,22 +188,22 @@ export const products = [
     id: "cp24-60-bed",
     category: "Beds",
     title: "CP24-60 Bed",
-    price: "$487",
+    price: "$525",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "89×79×45in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Walnut"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
+      "71×76in Specification",
+      "20in Headboard",
+      "13in Mattress",
       "2in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
+      size: "71×76in",
+      externalDimensions: "89×79×45in",
+      headboard: "20in",
+      mattress: "13in",
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
@@ -213,23 +213,23 @@ export const products = [
     id: "cp24-04-bed",
     category: "Beds",
     title: "CP24-04 Bed",
-    price: "$487",
+    price: "$675",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "100×90×48in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Tan", "Brown", "Charcoal"],
     keyFeatures: [
-      "71×79in Specification",
+      "79×82in Specification",
       "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "14in Mattress",
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
+      size: "79×82in",
+      externalDimensions: "100×90×48in",
       headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      mattress: "14in",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed6_int, bed6, bed66]
@@ -238,23 +238,23 @@ export const products = [
     id: "cp24-65-bed",
     category: "Beds",
     title: "CP24-65 Bed",
-    price: "$487",
+    price: "$845",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "92×84×41in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "74×79in Specification",
+      "14in Headboard",
+      "8in Mattress",
+      "4in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      size: "74×79in",
+      externalDimensions: "92×84×41in",
+      headboard: "14in",
+      mattress: "8in",
+      legs: "4in head, 4in foot",
       binding: "Machine molding side"
     },
     images: [bed7_int, bed7, bed77]
@@ -263,23 +263,23 @@ export const products = [
     id: "cp24-46-bed",
     category: "Beds",
     title: "CP24-46 Bed",
-    price: "$487",
+    price: "$559",
     description: "Premium leather bed with high-resilience foam and pine timber frame"  ,
-    dimensions: "93×83×43in",
+    dimensions: "97×87×43in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
+      "77×80in Specification",
+      "17in Headboard",
       "10in Mattress",
-      "2in Head/Foot Legs"
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
+      size: "77×80in",
+      externalDimensions: "97×87×43in",
+      headboard: "17in",
       mattress: "10in",
-      legs: "2in head, 2in foot",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed8_int, bed8, bed88]
@@ -288,22 +288,22 @@ export const products = [
     id: "cp24-18-bed",
     category: "Beds",
     title: "CP24-18 Bed",
-    price: "$487",
+    price: "$715",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "94×82×47in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
+      "76×79in Specification",
+      "18in Headboard",
+      "12in Mattress",
       "2in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
+      size: "76×79in",
+      externalDimensions: "94×82×47in",
+      headboard: "18in",
+      mattress: "12in",
       legs: "2in head, 2in foot",
       binding: "Machine molding side"
     },
@@ -313,23 +313,23 @@ export const products = [
     id: "cp24-23-bed",
     category: "Beds",
     title: "CP24-23 Bed",
-    price: "$487",
+    price: "$615",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "88×78×39in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "72×75in Specification",
+      "15in Headboard",
+      "9in Mattress",
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      size: "72×75in",
+      externalDimensions: "88×78×39in",
+      headboard: "15in",
+      mattress: "9in",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed10_int, bed10, bed1010, bed101010]
@@ -338,23 +338,23 @@ export const products = [
       id: "cp24-27-bed",
     category: "Beds",
     title: "CP24-27 Bed",
-    price: "$487",
+    price: "$765",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "99×89×46in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "78×81in Specification",
+      "19in Headboard",
+      "13in Mattress",
+      "4in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      size: "78×81in",
+      externalDimensions: "99×89×46in",
+      headboard: "19in",
+      mattress: "13in",
+      legs: "4in head, 4in foot",
       binding: "Machine molding side"
     },
     images: [bedeleven_int, bedeleven, bedeleven1, bedeleven11]
@@ -362,24 +362,24 @@ export const products = [
   {
     id: "cp24-14-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
-    price: "$487",
+    title: "BY24-31 Bed",
+    price: "$695",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "90×83×44in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Pine Timber Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
+      "73×77in Specification",
       "16in Headboard",
-      "10in Mattress",
-      "2in Head/Foot Legs"
+      "11in Mattress",
+      "3in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
+      size: "73×77in",
+      externalDimensions: "90×83×44in",
       headboard: "16in",
-      mattress: "10in",
-      legs: "2in head, 2in foot",
+      mattress: "11in",
+      legs: "3in head, 3in foot",
       binding: "Machine molding side"
     },
     images: [bed12_int, bed12, bed1212, bed121212]
@@ -387,24 +387,24 @@ export const products = [
   {
     id: "cp24-14-bed",
     category: "Beds",
-    title: "CP24-14 Bed",
-    price: "$487",
+    title: "CP23-72 Bed",
+    price: "$825",
     description: "Premium leather bed with high-resilience foam and pine timber frame",
-    dimensions: "93×83×43in",
+    dimensions: "96×85×42in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
-      "71×79in Specification",
-      "16in Headboard",
+      "75×80in Specification",
+      "17in Headboard",
       "10in Mattress",
-      "2in Head/Foot Legs"
+      "4in Head/Foot Legs"
     ],
     specifications: {
-      size: "71×79in",
-      externalDimensions: "93×83×43in",
-      headboard: "16in",
+      size: "75×80in",
+      externalDimensions: "96×85×42in",
+      headboard: "17in",
       mattress: "10in",
-      legs: "2in head, 2in foot",
+      legs: "4in head, 4in foot",
       binding: "Machine molding side"
     },
     images: [bed13, bed1313, bed131313]
@@ -412,24 +412,24 @@ export const products = [
   {
     id: "cp24-14-sofa-1",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "BY24-56 Sofa",
+    price: "$749",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "92×38×36in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Black", "Brown", "Gray"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "18in Back Height",
+      "26in Seat Depth",
+      "4in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "92×38×36in",
+      backHeight: "18in",
+      seatDepth: "26in",
+      legs: "4in",
       binding: "Machine molding side"
     },
     images: [sofa1_int, sofa1, sofa11, sofa111]
@@ -437,24 +437,24 @@ export const products = [
   {
     id: "cp24-14-sofa-2",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "CP23-89 Sofa",
+    price: "$625",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "84×35×32in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Tan", "Walnut"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "15in Back Height",
+      "24in Seat Depth",
+      "3in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "84×35×32in",
+      backHeight: "15in",
+      seatDepth: "24in",
+      legs: "3in",
       binding: "Machine molding side"
     },
     images: [sofa2_int, sofa2, sofa22, sofa222]
@@ -462,24 +462,24 @@ export const products = [
   {
     id: "cp24-14-sofa-3",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "BY23-47 Sofa",
+    price: "$895",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "95×40×37in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Tan", "Walnut"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "20in Back Height",
+      "28in Seat Depth",
+      "5in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "95×40×37in",
+      backHeight: "20in",
+      seatDepth: "28in",
+      legs: "5in",
       binding: "Machine molding side"
     },
     images: [sofa3_int, sofa3, sofa33, sofa333]
@@ -487,24 +487,24 @@ export const products = [
   {
     id: "cp24-14-sofa-7",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "CP24-92 Sofa",
+    price: "$775",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "89×37×34in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Black", "Tan"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "17in Back Height",
+      "25in Seat Depth",
+      "3in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "89×37×34in",
+      backHeight: "17in",
+      seatDepth: "25in",
+      legs: "3in",
       binding: "Machine molding side"
     },
     images: [sofa4_int, sofa4, sofa44, sofa444]
@@ -512,23 +512,23 @@ export const products = [
   {
     id: "cp24-14-sofa-8",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "BY24-18 Sofa",
+    price: "$685",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "86×34×31in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Tan", "Walnut"],
     keyFeatures: [
       "3-Seater Design",
       "16in Back Height",
-      "10in Seat Depth",
+      "23in Seat Depth",
       "2in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
+      externalDimensions: "86×34×31in",
       backHeight: "16in",
-      seatDepth: "10in",
+      seatDepth: "23in",
       legs: "2in",
       binding: "Machine molding side"
     },
@@ -537,24 +537,24 @@ export const products = [
   {
     id: "cp24-14-sofa-5",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "CP23-63 Sofa",
+    price: "$825",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "91×39×35in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Tan", "Walnut"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "19in Back Height",
+      "27in Seat Depth",
+      "4in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "91×39×35in",
+      backHeight: "19in",
+      seatDepth: "27in",
+      legs: "4in",
       binding: "Machine molding side"
     },
     images: [sofa6_int, sofa6, sofa66, sofa666]
@@ -562,24 +562,24 @@ export const products = [
   {
     id: "cp24-14-sofa-9",
     category: "Sofas",
-    title: "CP24-14 Sofa",
-    price: "$487",
+    title: "BY23-25 Sofa",
+    price: "$945",
     description: "Premium leather sofa with high-resilience foam and Russian larch wood frame",
-    dimensions: "87×35×33in",
+    dimensions: "93×36×38in",
     materials: ["Top-grain Leather", "High-resilience Foam", "Russian Larch Wood Frame"],
     colors: ["Brown", "Tan", "Walnut"],
     keyFeatures: [
       "3-Seater Design",
-      "16in Back Height",
-      "10in Seat Depth",
-      "2in Leg Height"
+      "18in Back Height",
+      "26in Seat Depth",
+      "5in Leg Height"
     ],
     specifications: {
       size: "3-Seater",
-      externalDimensions: "87×35×33in",
-      backHeight: "16in",
-      seatDepth: "10in",
-      legs: "2in",
+      externalDimensions: "93×36×38in",
+      backHeight: "18in",
+      seatDepth: "26in",
+      legs: "5in",
       binding: "Machine molding side"
     },
     images: [sofa7_int, sofa7, sofa77, sofa777]
