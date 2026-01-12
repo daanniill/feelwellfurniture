@@ -20,6 +20,7 @@ export default function Product() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
+  const [isMetric, setIsMetric] = useState(false);
 
   const handleZoomToggle = () => {
     setIsZoomed(!isZoomed);
@@ -40,6 +41,33 @@ export default function Product() {
     setIsZoomed(false);
     setZoomPosition({ x: 50, y: 50 });
   }, [selectedImage]);
+
+  // Convert all measurements between imperial and metric
+  const convertMeasurements = (text) => {
+    if (!text || !isMetric) return text;
+    
+    // Convert dimensions (format: "93×83×43in" or "93 x 83 x 43 in")
+    text = text.replace(/(\d+)\s*[×x]\s*(\d+)\s*[×x]\s*(\d+)\s*in/gi, (match, w, d, h) => {
+      const widthCm = Math.round(parseInt(w) * 2.54);
+      const depthCm = Math.round(parseInt(d) * 2.54);
+      const heightCm = Math.round(parseInt(h) * 2.54);
+      return `${widthCm}×${depthCm}×${heightCm}cm`;
+    });
+    
+    // Convert single measurements like "12in" or "12 in" or "12 inches"
+    text = text.replace(/(\d+\.?\d*)\s*(in|inch|inches)\b/gi, (match, num) => {
+      const cm = Math.round(parseFloat(num) * 2.54);
+      return `${cm}cm`;
+    });
+    
+    // Convert weight (lbs to kg)
+    text = text.replace(/(\d+\.?\d*)\s*(lb|lbs|pound|pounds)\b/gi, (match, num) => {
+      const kg = (parseFloat(num) * 0.453592).toFixed(1);
+      return `${kg}kg`;
+    });
+    
+    return text;
+  };
 
   if (!product) {
     return (
@@ -131,12 +159,12 @@ export default function Product() {
                 </>
               )}
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:flex sm:gap-4 sm:overflow-x-auto sm:py-4 sm:justify-center custom-scrollbar">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square overflow-hidden rounded-lg ${
+                  className={`aspect-square sm:flex-shrink-0 sm:w-32 sm:h-32 overflow-hidden rounded-lg ${
                     selectedImage === index
                       ? "ring-2 ring-black dark:ring-white"
                       : "opacity-70 hover:opacity-100"
@@ -154,10 +182,32 @@ export default function Product() {
 
           {/* Product Details - Right */}
           <div className="space-y-8 overflow-y-auto p-6 border border-gray-200 dark:border-neutral-700 rounded-2xl custom-scrollbar">
-            {/* Category */}
-            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-gilroy-medium">
-              {product.category}
-            </p>
+            {/* Header with Category and Unit Toggle */}
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-gilroy-medium">
+                {product.category}
+              </p>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-gilroy-medium text-gray-600 dark:text-gray-300">
+                  {isMetric ? 'Metric' : 'Imperial'}
+                </span>
+                <button
+                  onClick={() => setIsMetric(!isMetric)}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    isMetric ? 'bg-black dark:bg-white' : 'bg-gray-300 dark:bg-neutral-600'
+                  }`}
+                  aria-label="Toggle unit system"
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full transition-transform ${
+                      isMetric 
+                        ? 'translate-x-6 bg-white dark:bg-black' 
+                        : 'translate-x-1 bg-white dark:bg-neutral-300'
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
 
             {/* Title */}
             <h1 className="text-4xl font-gilroy-extrabold text-gray-900 dark:text-gray-100">
@@ -179,7 +229,7 @@ export default function Product() {
               <h3 className="text-lg font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                 Dimensions
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">{product.dimensions}</p>
+              <p className="text-gray-600 dark:text-gray-300">{convertMeasurements(product.dimensions)}</p>
             </div>
 
             {/* Materials */}
@@ -223,7 +273,7 @@ export default function Product() {
                 {product.keyFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start text-gray-600 dark:text-gray-300">
                     <span className="mr-2 text-gray-900 dark:text-gray-100">✓</span>
-                    {feature}
+                    {convertMeasurements(feature)}
                   </li>
                 ))}
               </ul>
@@ -240,7 +290,7 @@ export default function Product() {
                     <dt className="font-medium text-gray-900 dark:text-gray-100 capitalize w-40">
                       {key.replace(/([A-Z])/g, " $1").trim()}:
                     </dt>
-                    <dd className="text-gray-600 dark:text-gray-300">{value}</dd>
+                    <dd className="text-gray-600 dark:text-gray-300">{convertMeasurements(value)}</dd>
                   </div>
                 ))}
               </dl>
