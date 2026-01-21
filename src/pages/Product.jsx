@@ -88,7 +88,7 @@ export default function Product() {
   }
 
   return (
-    <div className="min-h-screen py-16 px-8 mb-16">
+    <div className="min-h-screen py-16 px-8 pb-32">
       <div className="max-w-7xl mx-auto">
         <button
           onClick={() => navigate(-1)}
@@ -97,7 +97,7 @@ export default function Product() {
           ← Back
         </button>
         
-        <div className="grid lg:grid-cols-2 gap-12 lg:h-[calc(100vh-12rem)]">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Image Gallery - Left */}
           <div className="space-y-4">
             <div 
@@ -181,7 +181,7 @@ export default function Product() {
           </div>
 
           {/* Product Details - Right */}
-          <div className="space-y-8 overflow-y-auto p-6 border border-gray-200 dark:border-neutral-700 rounded-2xl custom-scrollbar">
+          <div className="space-y-8 lg:h-[calc(100vw/2.2+8rem)] lg:overflow-y-auto p-6 pb-8 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg custom-scrollbar">
             {/* Header with Category and Unit Toggle */}
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-gilroy-medium">
