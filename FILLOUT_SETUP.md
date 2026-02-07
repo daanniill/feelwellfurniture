@@ -1,6 +1,10 @@
 # Fillout Integration Setup Guide
 
-This guide will help you set up the Fillout integration for the shopping cart feature.
+This guide will help you set up the Fillout integration for both the **shopping cart checkout** and **contact form** features.
+
+**Note:** This setup covers two separate forms:
+1. **Order/Checkout Form** (Sections 1-7) - For processing customer orders
+2. **Contact Form** (Section 8) - For handling contact inquiries
 
 ## 1. Create a Fillout Account
 
@@ -134,6 +138,56 @@ Fillout also supports:
 - Never expose your API key in client-side code (except in environment variables)
 - For production, consider adding server-side price validation
 - Enable Fillout's spam protection in Settings → Security
+
+## 8. Setting Up the Contact Form (Optional)
+
+The contact form on the Contact page can also be integrated with Fillout.
+
+### Create a Contact Form in Fillout:
+
+1. Go to Fillout and click **Create Form**
+2. Choose **Blank form**
+3. Add the following fields:
+
+| Field Label | Field Type | Settings |
+|------------|------------|----------|
+| Name | Short text | Required |
+| Email | Email | Required |
+| Phone | Short text | Optional |
+| Subject | Short text | Required |
+| Message | Long text | Required |
+
+### Get Field IDs for Contact Form:
+
+Just like with the order form, you need to get the Field ID for each field:
+1. Click on each field in the Fillout editor
+2. Find the **"Field ID"** in the right sidebar
+3. Copy each ID
+
+### Add to .env file:
+
+Add these to your `.env` file (they're already included at the bottom):
+
+```bash
+# Contact Form Configuration
+REACT_APP_FILLOUT_CONTACT_FORM_ID=your_contact_form_id_here
+
+# Contact Form Field IDs
+REACT_APP_FILLOUT_CONTACT_FIELD_NAME=paste_name_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_EMAIL=paste_email_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_PHONE=paste_phone_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_SUBJECT=paste_subject_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_MESSAGE=paste_message_field_id_here
+```
+
+**Note:** The Contact form and Order form are separate, so you'll have two different Form IDs and two sets of Field IDs. Both forms use the same `REACT_APP_FILLOUT_API_KEY`.
+
+### Testing the Contact Form:
+
+1. Go to the Contact page
+2. Fill out the form
+3. Click "Send Message"
+4. Check your Fillout dashboard for the submission
 
 ## Troubleshooting
 

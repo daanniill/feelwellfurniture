@@ -1,4 +1,83 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const payload = {
+        submissions: [
+          {
+            questions: [
+              { id: process.env.REACT_APP_FILLOUT_CONTACT_FIELD_NAME, value: formData.name },
+              { id: process.env.REACT_APP_FILLOUT_CONTACT_FIELD_EMAIL, value: formData.email },
+              { id: process.env.REACT_APP_FILLOUT_CONTACT_FIELD_PHONE, value: formData.phone || 'Not provided' },
+              { id: process.env.REACT_APP_FILLOUT_CONTACT_FIELD_SUBJECT, value: formData.subject },
+              { id: process.env.REACT_APP_FILLOUT_CONTACT_FIELD_MESSAGE, value: formData.message },
+            ],
+          },
+        ],
+      };
+
+      const response = await fetch(
+        `https://api.fillout.com/v1/api/forms/${process.env.REACT_APP_FILLOUT_CONTACT_FORM_ID}/submissions`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.REACT_APP_FILLOUT_API_KEY}`,
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Fillout API Error Response:', errorText);
+        throw new Error(`Failed to submit message. Please try again.`);
+      }
+
+      setSubmitSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Message submission error:', error);
+      setSubmitError(error.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="py-20 px-8">
       <div className="max-w-6xl mx-auto">
@@ -18,16 +97,44 @@ export default function Contact() {
             <h3 className="text-2xl font-gilroy-extrabold mb-6 text-gray-900 dark:text-gray-100">
               Send us a Message
             </h3>
-            <form className="flex flex-col gap-4">
+
+            {/* Success Message */}
+            <AnimatePresence>
+              {submitSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 rounded-lg"
+                >
+                  <p className="text-green-700 dark:text-green-300 font-gilroy-medium">
+                    ✓ Message sent successfully! We'll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Error Message */}
+            {submitError && (
+              <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 rounded-lg">
+                <p className="text-red-700 dark:text-red-300 font-gilroy-medium">{submitError}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-gilroy-medium mb-2 text-gray-900 dark:text-gray-100">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your name"
                   required
-                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                  disabled={isSubmitting}
+                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               
@@ -37,9 +144,13 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="your.email@example.com"
                   required
-                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                  disabled={isSubmitting}
+                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               
@@ -49,8 +160,12 @@ export default function Contact() {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="(555) 123-4567"
-                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                  disabled={isSubmitting}
+                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               
@@ -60,9 +175,13 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="What is this regarding?"
                   required
-                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                  disabled={isSubmitting}
+                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               
@@ -71,18 +190,23 @@ export default function Contact() {
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us more about your inquiry..."
                   rows="5"
                   required
-                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white resize-none"
+                  disabled={isSubmitting}
+                  className="w-full border border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               
               <button
                 type="submit"
-                className="bg-black dark:bg-white dark:text-black text-white py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-gilroy-medium mt-2"
+                disabled={isSubmitting}
+                className="bg-black dark:bg-white dark:text-black text-white py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all font-gilroy-medium mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
