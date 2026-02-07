@@ -2,10 +2,13 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
 
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Reviews from "./pages/Reviews";
 import { useEffect, useState } from "react";
@@ -40,6 +43,8 @@ function AnimatedRoutes({ theme }) {
           <Route path="/" element={<Home theme={theme} />} />
           <Route path="/collection" element={<Collection theme={theme} />} />
           <Route path="/product/:id" element={<Product theme={theme} />} />
+          <Route path="/cart" element={<Cart theme={theme} />} />
+          <Route path="/checkout" element={<Checkout theme={theme} />} />
           <Route path="/reviews" element={<Reviews theme={theme} />} />
           <Route path="/contact" element={<Contact theme={theme} />} />
         </Routes>
@@ -63,13 +68,15 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
-      <div className={`min-h-screen flex flex-col transition-colors duration-300 ${theme === "dark" ? "bg-neutral-800 text-gray-100" : "bg-white text-gray-800"}`}>
-        <Navbar theme={theme} setTheme={setTheme} />
-        <AnimatedRoutes theme={theme} />
-        <Footer />
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div className={`min-h-screen flex flex-col transition-colors duration-300 ${theme === "dark" ? "bg-neutral-800 text-gray-100" : "bg-white text-gray-800"}`}>
+          <Navbar theme={theme} setTheme={setTheme} />
+          <AnimatedRoutes theme={theme} />
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

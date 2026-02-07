@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Sun, Moon, Menu, X } from "lucide-react"; // lightweight icon lib
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Sun, Moon, Menu, X, ShoppingCart } from "lucide-react"; // lightweight icon lib
+import { useCart } from "../context/CartContext";
 
 export default function Navbar({ theme, setTheme }) {
+  const navigate = useNavigate();
+  const { getTotalItems } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth < 768 : false
@@ -55,6 +58,18 @@ export default function Navbar({ theme, setTheme }) {
           </NavLink>
         ))}
         <button
+          onClick={() => navigate('/cart')}
+          className="relative p-2 rounded-full hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all"
+          aria-label="Shopping cart"
+        >
+          <ShoppingCart size={18} />
+          {getTotalItems() > 0 && (
+            <span className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center">
+              {getTotalItems()}
+            </span>
+          )}
+        </button>
+        <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all"
           aria-label="Toggle theme"
@@ -68,6 +83,18 @@ export default function Navbar({ theme, setTheme }) {
           isMobileView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
+        <button
+          onClick={() => navigate('/cart')}
+          className="relative p-2 rounded-full hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all"
+          aria-label="Shopping cart"
+        >
+          <ShoppingCart size={18} />
+          {getTotalItems() > 0 && (
+            <span className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center">
+              {getTotalItems()}
+            </span>
+          )}
+        </button>
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all"

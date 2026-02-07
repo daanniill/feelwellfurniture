@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getProductById } from "../data/products";
+import { useCart } from "../context/CartContext";
 
 const colorMap = {
   "Tan": "#D2B48C",
@@ -17,10 +18,13 @@ export default function Product() {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = getProductById(id);
+  const { addToCart } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
   const [isMetric, setIsMetric] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const handleZoomToggle = () => {
     setIsZoomed(!isZoomed);
@@ -35,6 +39,15 @@ export default function Product() {
     
     setZoomPosition({ x, y });
   };
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
+  };
+
+  const incrementQuantity = () => setQuantity(prev => prev + 1);
+  const decrementQuantity = () => setQuantity(prev => prev > 1 ? prev - 1 : 1);
 
   // Reset zoom when image changes
   useEffect(() => {
@@ -218,6 +231,53 @@ export default function Product() {
             <p className="text-3xl font-gilroy-medium text-gray-900 dark:text-gray-100">
               {product.price}
             </p>
+
+            {/* Add to Cart Section */}
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              {/* Quantity Selector */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-gilroy-medium text-gray-700 dark:text-gray-300">
+                  Quantity:
+                </span>
+                <div className="flex items-center border-2 border-gray-300 dark:border-neutral-600 rounded-lg">
+                  <button
+                    onClick={decrementQuantity}
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-gray-900 dark:text-gray-100"
+                  >
+                    −
+                  </button>
+                  <span className="px-6 py-2 border-x-2 border-gray-300 dark:border-neutral-600 font-gilroy-medium text-gray-900 dark:text-gray-100">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={incrementQuantity}
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-gray-900 dark:text-gray-100"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Add to Cart Button */}
+              <button
+                onClick={handleAddToCart}
+                className="flex-1 sm:flex-none bg-black dark:bg-white text-white dark:text-black px-8 py-3 rounded-lg font-gilroy-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
+              >
+                {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+              </button>
+
+              {/* View Cart Button */}
+              {addedToCart && (
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  onClick={() => navigate('/cart')}
+                  className="flex-1 sm:flex-none border-2 border-black dark:border-white text-black dark:text-white px-8 py-3 rounded-lg font-gilroy-medium hover:bg-gray-100 dark:hover:bg-neutral-800 transition"
+                >
+                  View Cart
+                </motion.button>
+              )}
+            </div>
 
             {/* Description */}
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
