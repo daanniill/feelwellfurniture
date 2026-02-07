@@ -23,9 +23,12 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   // Add item to cart
-  const addToCart = (product, quantity = 1) => {
+  const addToCart = (product, quantity = 1, color = null) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
+      // Check if item with same id AND color already exists
+      const existingItem = prevCart.find(
+        (item) => item.id === product.id && item.color === color
+      );
       
       // Parse price to ensure it's always a number
       const numericPrice = typeof product.price === 'string' 
@@ -33,9 +36,9 @@ export const CartProvider = ({ children }) => {
         : product.price;
       
       if (existingItem) {
-        // Update quantity if item already exists
+        // Update quantity if item with same id and color already exists
         return prevCart.map((item) =>
-          item.id === product.id
+          item.id === product.id && item.color === color
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
@@ -50,6 +53,7 @@ export const CartProvider = ({ children }) => {
             image: product.images[0],
             category: product.category,
             quantity: quantity,
+            color: color,
           },
         ];
       }
@@ -57,20 +61,22 @@ export const CartProvider = ({ children }) => {
   };
 
   // Remove item from cart
-  const removeFromCart = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  const removeFromCart = (productId, color = null) => {
+    setCart((prevCart) => 
+      prevCart.filter((item) => !(item.id === productId && item.color === color))
+    );
   };
 
   // Update item quantity
-  const updateQuantity = (productId, quantity) => {
+  const updateQuantity = (productId, quantity, color = null) => {
     if (quantity <= 0) {
-      removeFromCart(productId);
+      removeFromCart(productId, color);
       return;
     }
     
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === productId ? { ...item, quantity } : item
+        item.id === productId && item.color === color ? { ...item, quantity } : item
       )
     );
   };
