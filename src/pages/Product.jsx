@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getProductById } from "../data/products";
+import { useCart } from "../context/CartContext";
 
 const colorMap = {
   "Tan": "#D2B48C",
@@ -17,10 +18,13 @@ export default function Product() {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = getProductById(id);
+  const { addToCart } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
   const [isMetric, setIsMetric] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const handleZoomToggle = () => {
     setIsZoomed(!isZoomed);
@@ -35,6 +39,15 @@ export default function Product() {
     
     setZoomPosition({ x, y });
   };
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
+  };
+
+  const incrementQuantity = () => setQuantity(prev => prev + 1);
+  const decrementQuantity = () => setQuantity(prev => prev > 1 ? prev - 1 : 1);
 
   // Reset zoom when image changes
   useEffect(() => {
@@ -218,6 +231,71 @@ export default function Product() {
             <p className="text-3xl font-gilroy-medium text-gray-900 dark:text-gray-100">
               {product.price}
             </p>
+
+            {/* Add to Cart Section */}
+            <div className="flex flex-col gap-3 items-start">
+              {/* Add to Cart Button */}
+              <div className="relative w-full sm:w-[200px]">
+                <motion.button
+                  onClick={handleAddToCart}
+                  disabled={addedToCart}
+                  whileTap={!addedToCart ? { scale: 0.95 } : {}}
+                  className={`relative w-full px-8 py-3 rounded-lg font-gilroy-medium transition-all duration-300 ${
+                    addedToCart 
+                      ? 'bg-green-600 dark:bg-green-500 text-white cursor-not-allowed' 
+                      : 'bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 cursor-pointer'
+                  }`}
+                >
+                  <motion.span
+                    key={addedToCart ? 'added' : 'add'}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="inline-block"
+                  >
+                    {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+                  </motion.span>
+                </motion.button>
+                
+                {/* Pulsating Ring Effect */}
+                <AnimatePresence>
+                  {addedToCart && (
+                    <motion.div
+                      initial={{ scale: 1, opacity: 0.7 }}
+                      animate={{ scale: 1.25, opacity: 0 }}
+                      exit={{ scale: 1, opacity: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="absolute inset-0 rounded-lg border-4 border-green-500 pointer-events-none"
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Quantity Selector - Smaller and below button */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-gilroy-medium text-gray-600 dark:text-gray-400">
+                  Quantity:
+                </span>
+                <div className="flex items-center border border-gray-300 dark:border-neutral-600 rounded">
+                  <button
+                    onClick={decrementQuantity}
+                    className="px-2 py-1 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-sm text-gray-900 dark:text-gray-100"
+                  >
+                    −
+                  </button>
+                  <span className="px-3 py-1 border-x border-gray-300 dark:border-neutral-600 font-gilroy-medium text-sm text-gray-900 dark:text-gray-100 min-w-[32px] text-center">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={incrementQuantity}
+                    className="px-2 py-1 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-sm text-gray-900 dark:text-gray-100"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
 
             {/* Description */}
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
