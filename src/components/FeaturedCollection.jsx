@@ -22,7 +22,7 @@ export default function FeaturedCollection() {
   return (
     <section
       ref={ref}
-      className={`py-20 px-8 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
+      className={`py-20 px-8 bg-gray-50 dark:bg-neutral-900 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-gilroy-extrabold text-center mb-12 text-gray-900 dark:text-gray-100">
@@ -32,7 +32,7 @@ export default function FeaturedCollection() {
           {featuredItems.map((product, index) => (
             <div
               key={product.id}
-              className={`bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden ${
+              className={`bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden transform hover:-translate-y-1 ${
                 isInView ? `animate-fade-in animate-delay-${index + 1}` : ''
               }`}
             >
