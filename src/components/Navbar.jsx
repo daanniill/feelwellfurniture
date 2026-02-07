@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X, ShoppingCart } from "lucide-react"; // lightweight icon lib
 import { useCart } from "../context/CartContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ theme, setTheme }) {
   const navigate = useNavigate();
@@ -63,11 +64,27 @@ export default function Navbar({ theme, setTheme }) {
           aria-label="Shopping cart"
         >
           <ShoppingCart size={18} />
-          {getTotalItems() > 0 && (
-            <span className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center">
-              {getTotalItems()}
-            </span>
-          )}
+          <AnimatePresence>
+            {getTotalItems() > 0 && (
+              <motion.span
+                key={getTotalItems()}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ 
+                  scale: 1, 
+                  opacity: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 25
+                  }
+                }}
+                exit={{ scale: 0, opacity: 0 }}
+                className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                {getTotalItems()}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -89,11 +106,27 @@ export default function Navbar({ theme, setTheme }) {
           aria-label="Shopping cart"
         >
           <ShoppingCart size={18} />
-          {getTotalItems() > 0 && (
-            <span className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center">
-              {getTotalItems()}
-            </span>
-          )}
+          <AnimatePresence>
+            {getTotalItems() > 0 && (
+              <motion.span
+                key={getTotalItems()}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ 
+                  scale: 1, 
+                  opacity: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 25
+                  }
+                }}
+                exit={{ scale: 0, opacity: 0 }}
+                className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-xs font-gilroy-extrabold rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                {getTotalItems()}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}

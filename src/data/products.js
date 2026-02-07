@@ -360,7 +360,7 @@ export const products = [
     images: [bedeleven_int, bedeleven, bedeleven1, bedeleven11]
   },
   {
-    id: "cp24-14-bed",
+    id: "by24-31-bed",
     category: "Beds",
     title: "BY24-31 Bed",
     price: "$695",
@@ -385,7 +385,7 @@ export const products = [
     images: [bed12_int, bed12, bed1212, bed121212]
   },
   {
-    id: "cp24-14-bed",
+    id: "cp23-72-bed",
     category: "Beds",
     title: "CP23-72 Bed",
     price: "$825",
@@ -410,7 +410,7 @@ export const products = [
     images: [bed13, bed1313, bed131313]
   },
   {
-    id: "cp24-14-sofa-1",
+    id: "by24-56-sofa",
     category: "Sofas",
     title: "BY24-56 Sofa",
     price: "$749",
@@ -435,7 +435,7 @@ export const products = [
     images: [sofa1_int, sofa1, sofa11, sofa111]
   },
   {
-    id: "cp24-14-sofa-2",
+    id: "cp23-89-sofa",
     category: "Sofas",
     title: "CP23-89 Sofa",
     price: "$625",
@@ -460,7 +460,7 @@ export const products = [
     images: [sofa2_int, sofa2, sofa22, sofa222]
   },
   {
-    id: "cp24-14-sofa-3",
+    id: "by23-47-sofa",
     category: "Sofas",
     title: "BY23-47 Sofa",
     price: "$895",
@@ -485,7 +485,7 @@ export const products = [
     images: [sofa3_int, sofa3, sofa33, sofa333]
   },
   {
-    id: "cp24-14-sofa-7",
+    id: "cp24-92-sofa",
     category: "Sofas",
     title: "CP24-92 Sofa",
     price: "$775",
@@ -510,7 +510,7 @@ export const products = [
     images: [sofa4_int, sofa4, sofa44, sofa444]
   },
   {
-    id: "cp24-14-sofa-8",
+    id: "by24-18-sofa",
     category: "Sofas",
     title: "BY24-18 Sofa",
     price: "$685",
@@ -535,7 +535,7 @@ export const products = [
     images: [sofa5_int, sofa5, sofa55, sofa555]
   },
   {
-    id: "cp24-14-sofa-5",
+    id: "cp23-63-sofa",
     category: "Sofas",
     title: "CP23-63 Sofa",
     price: "$825",
@@ -560,7 +560,7 @@ export const products = [
     images: [sofa6_int, sofa6, sofa66, sofa666]
   },
   {
-    id: "cp24-14-sofa-9",
+    id: "by23-25-sofa",
     category: "Sofas",
     title: "BY23-25 Sofa",
     price: "$945",

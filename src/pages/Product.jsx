@@ -233,50 +233,68 @@ export default function Product() {
             </p>
 
             {/* Add to Cart Section */}
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              {/* Quantity Selector */}
+            <div className="flex flex-col gap-3 items-start">
+              {/* Add to Cart Button */}
+              <div className="relative w-full sm:w-[200px]">
+                <motion.button
+                  onClick={handleAddToCart}
+                  disabled={addedToCart}
+                  whileTap={!addedToCart ? { scale: 0.95 } : {}}
+                  className={`relative w-full px-8 py-3 rounded-lg font-gilroy-medium transition-all duration-300 ${
+                    addedToCart 
+                      ? 'bg-green-600 dark:bg-green-500 text-white cursor-not-allowed' 
+                      : 'bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 cursor-pointer'
+                  }`}
+                >
+                  <motion.span
+                    key={addedToCart ? 'added' : 'add'}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="inline-block"
+                  >
+                    {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+                  </motion.span>
+                </motion.button>
+                
+                {/* Pulsating Ring Effect */}
+                <AnimatePresence>
+                  {addedToCart && (
+                    <motion.div
+                      initial={{ scale: 1, opacity: 0.7 }}
+                      animate={{ scale: 1.25, opacity: 0 }}
+                      exit={{ scale: 1, opacity: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="absolute inset-0 rounded-lg border-4 border-green-500 pointer-events-none"
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Quantity Selector - Smaller and below button */}
               <div className="flex items-center gap-2">
-                <span className="text-sm font-gilroy-medium text-gray-700 dark:text-gray-300">
+                <span className="text-xs font-gilroy-medium text-gray-600 dark:text-gray-400">
                   Quantity:
                 </span>
-                <div className="flex items-center border-2 border-gray-300 dark:border-neutral-600 rounded-lg">
+                <div className="flex items-center border border-gray-300 dark:border-neutral-600 rounded">
                   <button
                     onClick={decrementQuantity}
-                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-gray-900 dark:text-gray-100"
+                    className="px-2 py-1 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-sm text-gray-900 dark:text-gray-100"
                   >
                     −
                   </button>
-                  <span className="px-6 py-2 border-x-2 border-gray-300 dark:border-neutral-600 font-gilroy-medium text-gray-900 dark:text-gray-100">
+                  <span className="px-3 py-1 border-x border-gray-300 dark:border-neutral-600 font-gilroy-medium text-sm text-gray-900 dark:text-gray-100 min-w-[32px] text-center">
                     {quantity}
                   </span>
                   <button
                     onClick={incrementQuantity}
-                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-gray-900 dark:text-gray-100"
+                    className="px-2 py-1 hover:bg-gray-100 dark:hover:bg-neutral-700 transition font-gilroy-medium text-sm text-gray-900 dark:text-gray-100"
                   >
                     +
                   </button>
                 </div>
               </div>
-
-              {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                className="flex-1 sm:flex-none bg-black dark:bg-white text-white dark:text-black px-8 py-3 rounded-lg font-gilroy-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition"
-              >
-                {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
-              </button>
-
-              {/* View Cart Button */}
-              {addedToCart && (
-                <motion.button
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  onClick={() => navigate('/cart')}
-                  className="flex-1 sm:flex-none border-2 border-black dark:border-white text-black dark:text-white px-8 py-3 rounded-lg font-gilroy-medium hover:bg-gray-100 dark:hover:bg-neutral-800 transition"
-                >
-                  View Cart
-                </motion.button>
-              )}
             </div>
 
             {/* Description */}
