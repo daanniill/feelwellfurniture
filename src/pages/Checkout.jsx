@@ -55,22 +55,45 @@ function Checkout() {
 
       const fullAddress = `${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}, ${formData.country}`;
 
+      // Get field IDs from environment variables
+      // These must be set in your .env file - get them from your Fillout form
+      const fieldIds = {
+        fullName: process.env.REACT_APP_FILLOUT_FIELD_FULLNAME || '',
+        email: process.env.REACT_APP_FILLOUT_FIELD_EMAIL || '',
+        phone: process.env.REACT_APP_FILLOUT_FIELD_PHONE || '',
+        address: process.env.REACT_APP_FILLOUT_FIELD_ADDRESS || '',
+        notes: process.env.REACT_APP_FILLOUT_FIELD_NOTES || '',
+        cart: process.env.REACT_APP_FILLOUT_FIELD_CART || '',
+        total: process.env.REACT_APP_FILLOUT_FIELD_TOTAL || '',
+      };
+
+      // Validate that all field IDs are set
+      const missingFields = Object.entries(fieldIds)
+        .filter(([key, value]) => !value)
+        .map(([key]) => key);
+      
+      if (missingFields.length > 0) {
+        throw new Error(`Missing Fillout field IDs in .env: ${missingFields.join(', ')}. Please check FILLOUT_SETUP.md for instructions.`);
+      }
+
       // Prepare payload for Fillout API
       const payload = {
         submissions: [
           {
             questions: [
-              { name: 'Full Name', value: formData.fullName },
-              { name: 'Email', value: formData.email },
-              { name: 'Phone', value: formData.phone },
-              { name: 'Address', value: fullAddress },
-              { name: 'Notes', value: formData.notes || 'No special notes' },
-              { name: 'cart_json', value: JSON.stringify(cartData) },
-              { name: 'Order Total', value: `$${getTotalPrice().toFixed(2)}` },
+              { id: fieldIds.fullName, value: formData.fullName },
+              { id: fieldIds.email, value: formData.email },
+              { id: fieldIds.phone, value: formData.phone },
+              { id: fieldIds.address, value: fullAddress },
+              { id: fieldIds.notes, value: formData.notes || 'No special notes' },
+              { id: fieldIds.cart, value: JSON.stringify(cartData) },
+              { id: fieldIds.total, value: `$${getTotalPrice().toFixed(2)}` },
             ],
           },
         ],
       };
+
+      console.log('Submitting to Fillout with field IDs:', fieldIds);
 
       // Send to Fillout API
       const response = await fetch(
@@ -86,7 +109,13 @@ function Checkout() {
       );
 
       if (!response.ok) {
-        throw new Error('Failed to submit order. Please try again.');
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Fillout API Error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorData
+        });
+        throw new Error(JSON.stringify(errorData) || 'Failed to submit order. Please try again.');
       }
 
       // Success!

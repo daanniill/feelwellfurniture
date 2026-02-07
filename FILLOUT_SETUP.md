@@ -34,18 +34,64 @@ Go to [fillout.com](https://fillout.com) and sign up for a free account.
    - **Form ID** (looks like: `abc123xyz`)
    - **API Key** (long string starting with `Bearer`)
 
-## 4. Configure Your Application
+## 4. Get Field IDs from Your Form
 
-Create a `.env` file in the project root:
+**CRITICAL STEP:** You need the unique Field ID for each field in your Fillout form.
+
+### How to Get Field IDs:
+
+1. In your Fillout form editor, click on each field to edit it
+2. Look for **"Field ID"** or **"Question ID"** in the right sidebar (field settings)
+3. Copy the ID - it's usually a random string like `abc123xyz`, `bK7mN2pQ`, etc.
+
+You need to get the Field ID for ALL 7 fields:
+- Full Name field
+- Email field  
+- Phone field
+- Address field
+- Notes field
+- cart_json field (the hidden one)
+- Order Total field
+
+**Screenshot locations to find Field IDs:**
+- Usually in the right sidebar when you click on a field
+- Sometimes under "Advanced" or "Settings" tab
+- Look for "ID", "Field ID", or "Question ID"
+
+## 5. Configure Your Application
+
+Your `.env` file should look like this:
 
 ```bash
-REACT_APP_FILLOUT_FORM_ID=your_form_id_here
-REACT_APP_FILLOUT_API_KEY=your_api_key_here
+# Form credentials
+REACT_APP_FILLOUT_FORM_ID=dQdS73JMqcus
+REACT_APP_FILLOUT_API_KEY=your_actual_api_key_here
+
+# Field IDs - Replace these with actual IDs from your Fillout form
+REACT_APP_FILLOUT_FIELD_FULLNAME=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_EMAIL=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_PHONE=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_ADDRESS=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_NOTES=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_CART=actual_field_id_here
+REACT_APP_FILLOUT_FIELD_TOTAL=actual_field_id_here
 ```
 
-Replace the placeholder values with your actual credentials from step 3.
+**Replace ALL the placeholder values with your actual values!**
 
-## 5. Set Up Integrations (Optional but Recommended)
+## 6. Restart Your Dev Server
+
+**CRITICAL:** After setting up your `.env` file with all the Field IDs:
+
+```bash
+# Stop your dev server (Ctrl+C or Cmd+C)
+# Then start it again:
+npm start
+```
+
+Environment variables only load when the server starts!
+
+## 7. Set Up Integrations (Optional but Recommended)
 
 ### Google Sheets Integration
 
@@ -91,17 +137,27 @@ Fillout also supports:
 
 ## Troubleshooting
 
+### "Missing Fillout field IDs in .env"
+
+This error means you haven't added the Field IDs to your `.env` file yet.
+
+**Fix:**
+1. Go to your Fillout form
+2. Click on each field and copy its Field ID
+3. Add all 7 Field IDs to your `.env` file
+4. Restart your dev server
+
+### "Invalid input: expected string, received undefined" (at path questions/0/id)
+
+This is the same as above - missing Field IDs in your `.env` file.
+
 ### "Failed to submit order"
 
-- Check that your Form ID and API Key are correct
-- Make sure the field names in the form exactly match:
-  - `Full Name`
-  - `Email`
-  - `Phone`
-  - `Address`
-  - `Notes`
-  - `cart_json`
-  - `Order Total`
+Common causes:
+- **Missing API Key**: Make sure `REACT_APP_FILLOUT_API_KEY` is set in `.env`
+- **Wrong Form ID**: Verify `REACT_APP_FILLOUT_FORM_ID` matches your form
+- **Field IDs not matching**: The Field IDs in `.env` must exactly match the IDs in your Fillout form
+- **Didn't restart server**: After changing `.env`, restart with `npm start`
 
 ### No data appearing in Fillout
 

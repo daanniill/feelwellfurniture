@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
       
-      // Parse price - convert "$649" to 649
+      // Parse price to ensure it's always a number
       const numericPrice = typeof product.price === 'string' 
         ? parseFloat(product.price.replace('$', ''))
         : product.price;
@@ -91,7 +91,7 @@ export const CartProvider = ({ children }) => {
       const price = typeof item.price === 'string' 
         ? parseFloat(item.price.replace('$', ''))
         : item.price;
-      return total + price * item.quantity;
+      return total + (price * item.quantity);
     }, 0);
   };
 
