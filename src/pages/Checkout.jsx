@@ -47,6 +47,7 @@ function Checkout() {
         const price = parsePrice(item.price);
         return {
           name: item.title,
+          color: item.color || 'Not specified',
           price: price,
           quantity: item.quantity,
           subtotal: (price * item.quantity).toFixed(2),
@@ -369,7 +370,7 @@ function Checkout() {
 
               <div className="space-y-4 mb-6">
                 {cart.map((item) => (
-                  <div key={item.id} className="flex gap-3">
+                  <div key={`${item.id}-${item.color || 'default'}`} className="flex gap-3">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -379,6 +380,11 @@ function Checkout() {
                       <p className="font-gilroy-medium text-sm text-gray-900 dark:text-gray-100">
                         {item.title}
                       </p>
+                      {item.color && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400 font-gilroy-regular">
+                          Color: {item.color}
+                        </p>
+                      )}
                       <p className="text-xs text-gray-500 dark:text-gray-400 font-gilroy-regular">
                         Qty: {item.quantity}
                       </p>

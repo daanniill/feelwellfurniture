@@ -25,6 +25,8 @@ export default function Product() {
   const [isMetric, setIsMetric] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || null);
+  const [pulseKey, setPulseKey] = useState(0);
 
   const handleZoomToggle = () => {
     setIsZoomed(!isZoomed);
@@ -41,8 +43,9 @@ export default function Product() {
   };
 
   const handleAddToCart = () => {
-    addToCart(product, quantity);
+    addToCart(product, quantity, selectedColor);
     setAddedToCart(true);
+    setPulseKey(prev => prev + 1); // Increment to trigger new animation
     setTimeout(() => setAddedToCart(false), 2000);
   };
 
@@ -232,6 +235,32 @@ export default function Product() {
               {product.price}
             </p>
 
+            {/* Color Selection */}
+            <div>
+              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
+                Select Color
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {product.colors.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className={`flex flex-col items-center gap-2 p-2 rounded-lg transition-all ${
+                      selectedColor === color
+                        ? 'ring-2 ring-black dark:ring-white bg-gray-100 dark:bg-neutral-700'
+                        : 'hover:bg-gray-50 dark:hover:bg-neutral-800'
+                    }`}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-full shadow-sm border-2 border-gray-300 dark:border-neutral-600"
+                      style={{ backgroundColor: colorMap[color] || color }}
+                    />
+                    <p className="text-sm font-gilroy-medium text-gray-600 dark:text-gray-300">{color}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Add to Cart Section */}
             <div className="flex flex-col gap-3 items-start">
               {/* Add to Cart Button */}
@@ -262,6 +291,7 @@ export default function Product() {
                 <AnimatePresence>
                   {addedToCart && (
                     <motion.div
+                      key={pulseKey}
                       initial={{ scale: 1, opacity: 0.7 }}
                       animate={{ scale: 1.25, opacity: 0 }}
                       exit={{ scale: 1, opacity: 0 }}
@@ -324,23 +354,6 @@ export default function Product() {
               </ul>
             </div>
 
-            {/* Available Colors */}
-            <div>
-              <h3 className="text-lg font-gilroy-medium mb-3 text-gray-900 dark:text-gray-100">
-                Available Colors
-              </h3>
-              <div className="flex flex-wrap gap-4">
-                {product.colors.map((color) => (
-                  <div key={color} className="flex flex-col items-center">
-                    <div
-                      className="w-12 h-12 rounded-full shadow-sm border border-gray-300 dark:border-neutral-600"
-                      style={{ backgroundColor: colorMap[color] || color }}
-                    />
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{color}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* Key Features */}
             <div>

@@ -46,7 +46,7 @@ function Cart() {
           <div className="lg:col-span-2 space-y-4">
             {cart.map((item) => (
               <motion.div
-                key={item.id}
+                key={`${item.id}-${item.color || 'default'}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -100 }}
@@ -64,10 +64,15 @@ function Cart() {
                   <h3 className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-gilroy-regular mb-3">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-gilroy-regular">
                     {item.category}
                   </p>
-                  <p className="text-lg font-gilroy-extrabold text-gray-900 dark:text-gray-100">
+                  {item.color && (
+                    <p className="text-sm text-gray-600 dark:text-gray-400 font-gilroy-regular mb-2">
+                      Color: {item.color}
+                    </p>
+                  )}
+                  <p className="text-lg font-gilroy-extrabold text-gray-900 dark:text-gray-100 mt-2">
                     ${parsePrice(item.price).toFixed(2)}
                   </p>
                 </div>
@@ -75,7 +80,7 @@ function Cart() {
                 {/* Quantity Controls */}
                 <div className="flex flex-col items-end justify-between">
                   <button
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => removeFromCart(item.id, item.color)}
                     className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 text-sm font-gilroy-medium transition"
                   >
                     Remove
@@ -83,7 +88,7 @@ function Cart() {
 
                   <div className="flex items-center gap-2 border border-gray-300 dark:border-neutral-600 rounded-lg">
                     <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      onClick={() => updateQuantity(item.id, item.quantity - 1, item.color)}
                       className="px-3 py-1 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-l-lg transition font-gilroy-medium"
                     >
                       −
@@ -92,7 +97,7 @@ function Cart() {
                       {item.quantity}
                     </span>
                     <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      onClick={() => updateQuantity(item.id, item.quantity + 1, item.color)}
                       className="px-3 py-1 hover:bg-gray-200 dark:hover:bg-neutral-700 rounded-r-lg transition font-gilroy-medium"
                     >
                       +
