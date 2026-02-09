@@ -11,6 +11,7 @@ import bed9_int from "../assets/ai_img/bed9_int.png";
 import bed10_int from "../assets/ai_img/bed10_int.png";
 import bedeleven_int from "../assets/ai_img/bedeleven_int.png";
 import bed12_int from "../assets/ai_img/bed12_int.png";
+import bed13_int from "../assets/ai_img/bed13_int.png";
 
 // Bed images - Original images
 import bed1 from "../assets/images/bed1.png";
@@ -407,7 +408,7 @@ export const products = [
       legs: "4in head, 4in foot",
       binding: "Machine molding side"
     },
-    images: [bed13, bed1313, bed131313]
+    images: [bed13_int, bed13, bed1313, bed131313]
   },
   {
     id: "by24-56-sofa",
@@ -507,7 +508,7 @@ export const products = [
       legs: "3in",
       binding: "Machine molding side"
     },
-    images: [sofa4_int, sofa4, sofa44, sofa444]
+    images: [sofa4_int, sofa5, sofa55, sofa555]
   },
   {
     id: "by24-18-sofa",
@@ -532,7 +533,7 @@ export const products = [
       legs: "2in",
       binding: "Machine molding side"
     },
-    images: [sofa5_int, sofa5, sofa55, sofa555]
+    images: [sofa5_int, sofa6, sofa66, sofa666]
   },
   {
     id: "cp23-63-sofa",
@@ -557,7 +558,7 @@ export const products = [
       legs: "4in",
       binding: "Machine molding side"
     },
-    images: [sofa6_int, sofa6, sofa66, sofa666]
+    images: [sofa6_int, sofa7, sofa77, sofa777]
   },
   {
     id: "by23-25-sofa",
@@ -582,7 +583,7 @@ export const products = [
       legs: "5in",
       binding: "Machine molding side"
     },
-    images: [sofa7_int, sofa7, sofa77, sofa777]
+    images: [sofa7_int, sofa4, sofa44, sofa444]
   }
 ];
 
