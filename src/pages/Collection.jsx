@@ -23,7 +23,7 @@ export default function Collection() {
       : products.filter((product) => product.category === activeCategory);
 
   return (
-    <div className="px-8 py-16">
+    <div className="px-8 py-16 bg-gray-50 dark:bg-neutral-900 min-h-screen">
       <h2 className="text-3xl font-gilroy-extrabold text-center mb-10 text-gray-900 dark:text-gray-100">
         Our Collection
       </h2>
@@ -50,7 +50,7 @@ export default function Collection() {
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden"
+            className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-neutral-700 transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
           >
             <Link to={`/product/${product.id}`}>
               <img
