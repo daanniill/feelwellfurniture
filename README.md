@@ -5,12 +5,16 @@ A modern, responsive furniture e-commerce website built with React, featuring da
 ## Features
 
 - 🛋️ **Product Catalog** - Browse furniture collections with category filtering
+- 🛒 **Shopping Cart** - Add items to cart, manage quantities, and checkout
+- 📦 **Secure Checkout** - Form submissions via serverless functions (Fillout integration)
 - 🎨 **Dark/Light Theme** - Toggle between light and dark modes
-- 📱 **Responsive Design** - Mobile-friendly interface
-- 🎭 **Smooth Animations** - Page transitions powered by Framer Motion
-- 🛍️ **Product Details** - Detailed product pages with image galleries
+- 📱 **Responsive Design** - Mobile-friendly interface with optimized layouts
+- 🎭 **Smooth Animations** - Page transitions and interactions powered by Framer Motion
+- 🛍️ **Product Details** - Detailed product pages with image galleries and color selection
+- 📏 **Unit Conversion** - Toggle between imperial and metric measurements
 - ⭐ **Customer Reviews** - Testimonials and reviews section
-- 📧 **Contact Form** - Contact page with business information
+- 📧 **Contact Form** - Contact page with secure form submission
+- 🔒 **Secure API** - Serverless functions keep API keys safe
 
 ## Prerequisites
 
@@ -63,9 +67,26 @@ This will install all the dependencies listed in `package.json`.
 - **@testing-library/dom** (^10.4.1) - DOM testing utilities
 - **web-vitals** (^2.1.4) - Web performance metrics
 
+### Step 3: Set Up Environment Variables (For Fillout Integration)
+
+If you want to use the shopping cart and contact form features, you need to set up Fillout integration:
+
+1. **Copy the example environment file:**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Get your Fillout credentials:**
+   - See [FILLOUT_SETUP.md](./FILLOUT_SETUP.md) for detailed setup instructions
+   - See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for security information
+
+3. **Update `.env` with your credentials** (never commit this file to Git)
+
+**Note:** The app will run without this setup, but cart and contact form submissions won't work.
+
 ## Getting Started
 
-### Step 3: Start the Development Server
+### Step 4: Start the Development Server
 
 Run the following command to start the development server:
 
@@ -77,7 +98,7 @@ The application will open in your browser at [http://localhost:3000](http://loca
 
 The page will automatically reload if you make changes to the code.
 
-### Step 4: Build for Production
+### Step 5: Build for Production
 
 To create an optimized production build:
 
@@ -113,6 +134,10 @@ Ejects from Create React App, giving you full control over the configuration fil
 
 ```
 feelwell-furniture/
+├── api/                    # Vercel Serverless Functions (secure)
+│   ├── submit-order.js    # Handles checkout submissions
+│   ├── submit-contact.js  # Handles contact form submissions
+│   └── README.md          # API documentation
 ├── public/                 # Static files
 ├── src/
 │   ├── assets/            # Images and other assets
@@ -121,31 +146,66 @@ feelwell-furniture/
 │   │   ├── HeroSection.jsx
 │   │   ├── Navbar.jsx
 │   │   └── FeaturedCollection.jsx
+│   ├── context/           # React Context (global state)
+│   │   └── CartContext.jsx
 │   ├── data/              # Data files
 │   │   └── products.js
 │   ├── pages/             # Page components
 │   │   ├── Home.jsx
 │   │   ├── Collection.jsx
 │   │   ├── Product.jsx
+│   │   ├── Cart.jsx       # Shopping cart
+│   │   ├── Checkout.jsx   # Checkout form
 │   │   ├── About.jsx
 │   │   ├── Contact.jsx
 │   │   └── Reviews.jsx
 │   ├── App.js             # Main app component
 │   ├── index.js           # Entry point
 │   └── index.css          # Global styles
-├── tailwind.config.js     # Tailwind CSS configuration
-├── postcss.config.js      # PostCSS configuration
-└── package.json           # Project dependencies
+├── .env                    # Environment variables (local, not committed)
+├── .env.example            # Environment variables template
+├── vercel.json             # Vercel configuration
+├── FILLOUT_SETUP.md        # Fillout integration guide
+├── SECURITY_SETUP.md       # Security & deployment guide
+├── tailwind.config.js      # Tailwind CSS configuration
+├── postcss.config.js       # PostCSS configuration
+└── package.json            # Project dependencies
 ```
 
 ## Features Overview
 
 - **Home Page**: Hero section with call-to-action buttons and featured products
 - **Collection Page**: Browse all products with category filtering (All, Beds, Sofas)
-- **Product Pages**: Detailed product information with image galleries
+- **Product Pages**: Detailed product information with:
+  - Image galleries with thumbnails
+  - Color selection
+  - Imperial/Metric unit toggle
+  - Add to cart functionality
+  - Product specifications
+- **Shopping Cart**: View cart items, update quantities, remove items
+- **Checkout**: Secure checkout with form submission via serverless API
 - **Reviews Page**: Customer testimonials and reviews
-- **Contact Page**: Contact form and business information
+- **Contact Page**: Contact form with secure submission and business information
 - **About Page**: Company information and story
+
+## Deployment
+
+This app is optimized for deployment on **Vercel**:
+
+1. Push your code to GitHub
+2. Import your repository to Vercel
+3. Set environment variables in Vercel dashboard (see [SECURITY_SETUP.md](./SECURITY_SETUP.md))
+4. Deploy!
+
+The `/api` folder will automatically be deployed as serverless functions.
+
+**Important:** Make sure to add your environment variables in the Vercel dashboard:
+- `FILLOUT_API_KEY`
+- `FILLOUT_FORM_ID`
+- `FILLOUT_CONTACT_FORM_ID`
+- All `REACT_APP_FILLOUT_FIELD_*` variables
+
+See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for detailed deployment instructions.
 
 ## Theme Support
 

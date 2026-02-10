@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 function Cart() {
   const navigate = useNavigate();
-  const { cart, removeFromCart, updateQuantity, getTotalPrice, getTotalItems } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
 
   // Helper function to safely parse price
   const parsePrice = (price) => {
@@ -37,9 +37,21 @@ function Cart() {
   return (
     <div className="min-h-screen pt-24 pb-16 px-4 bg-white dark:bg-neutral-900">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-gilroy-extrabold text-gray-900 dark:text-gray-100 mb-8">
-          Shopping Cart ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'items'})
-        </h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-gilroy-extrabold text-gray-900 dark:text-gray-100">
+            Shopping Cart ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'items'})
+          </h1>
+          <button
+            onClick={() => {
+              if (window.confirm('Are you sure you want to clear your entire cart?')) {
+                clearCart();
+              }
+            }}
+            className="px-4 py-2 text-sm font-gilroy-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition border border-red-300 dark:border-red-700"
+          >
+            Clear All
+          </button>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Cart Items */}

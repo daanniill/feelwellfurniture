@@ -41,22 +41,19 @@ export default function Contact() {
         ],
       };
 
-      const response = await fetch(
-        `https://api.fillout.com/v1/api/forms/${process.env.REACT_APP_FILLOUT_CONTACT_FORM_ID}/submissions`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.REACT_APP_FILLOUT_API_KEY}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      // Send to our secure serverless function (which calls Fillout)
+      const response = await fetch('/api/submit-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Fillout API Error Response:', errorText);
-        throw new Error(`Failed to submit message. Please try again.`);
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Contact submission error:', errorData);
+        throw new Error(errorData.error || 'Failed to submit message. Please try again.');
       }
 
       setSubmitSuccess(true);
