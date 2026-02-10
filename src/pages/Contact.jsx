@@ -65,8 +65,8 @@ export default function Contact() {
         message: '',
       });
 
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      // Reset success message after 2 seconds
+      setTimeout(() => setSubmitSuccess(false), 2000);
     } catch (error) {
       console.error('Message submission error:', error);
       setSubmitError(error.message || 'Something went wrong. Please try again.');
@@ -76,40 +76,61 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-20 px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-gilroy-extrabold mb-4 text-gray-900 dark:text-gray-100">
-            Get in Touch
-          </h2>
-          <p className="font-gilroy-regular text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Have a question or want to learn more about our furniture? We'd love to hear from you.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div>
-            <h3 className="text-2xl font-gilroy-extrabold mb-6 text-gray-900 dark:text-gray-100">
-              Send us a Message
-            </h3>
-
-            {/* Success Message */}
-            <AnimatePresence>
-              {submitSuccess && (
+    <>
+      {/* Fullscreen Success Message */}
+      <AnimatePresence>
+        {submitSuccess && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ y: 50 }}
+              animate={{ y: 0 }}
+              className="bg-white dark:bg-neutral-800 rounded-3xl p-12 shadow-2xl border-4 border-green-500 max-w-md mx-4"
+            >
+              <div className="text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 rounded-lg"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className="text-8xl mb-6"
                 >
-                  <p className="text-green-700 dark:text-green-300 font-gilroy-medium">
-                    ✓ Message sent successfully! We'll get back to you soon.
-                  </p>
+                  ✓
                 </motion.div>
-              )}
-            </AnimatePresence>
+                <h3 className="text-3xl font-gilroy-extrabold text-gray-900 dark:text-gray-100 mb-4">
+                  Message Sent!
+                </h3>
+                <p className="text-lg font-gilroy-medium text-green-600 dark:text-green-400">
+                  We'll get back to you soon.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="py-20 px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-gilroy-extrabold mb-4 text-gray-900 dark:text-gray-100">
+              Get in Touch
+            </h2>
+            <p className="font-gilroy-regular text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Have a question or want to learn more about our furniture? We'd love to hear from you.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h3 className="text-2xl font-gilroy-extrabold mb-6 text-gray-900 dark:text-gray-100">
+                Send us a Message
+              </h3>
 
             {/* Error Message */}
             {submitError && (
@@ -224,10 +245,10 @@ export default function Contact() {
                 <div>
                   <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Phone</p>
                   <a
-                    href="tel:888-888-8888"
+                    href="tel:+18589770784"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
-                    888-888-8888
+                    +1 (858) 977-0784
                   </a>
                 </div>
               </div>
@@ -238,10 +259,10 @@ export default function Contact() {
                 <div>
                   <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Email</p>
                   <a
-                    href="mailto:sample@gmail.com"
+                    href="mailto:contact@feelwellfurniture.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
-                    sample@gmail.com
+                    contact@feelwellfurniture.com
                   </a>
                 </div>
               </div>
@@ -252,12 +273,12 @@ export default function Contact() {
                 <div>
                   <p className="font-gilroy-medium text-gray-900 dark:text-gray-100 mb-1">Address</p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=San+Francisco,+California"
+                    href="https://www.google.com/maps/search/?api=1&query=La+Jolla,+CA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
-                    San Francisco, California
+                    La Jolla, CA
                   </a>
                 </div>
               </div>
@@ -278,6 +299,7 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    </>
   );
 }
   
