@@ -2,6 +2,12 @@
 
 This guide will help you set up the Fillout integration for both the **shopping cart checkout** and **contact form** features.
 
+## 🔒 Security First
+
+**Important:** This project uses a **secure serverless architecture** that keeps your Fillout API key safe on the server. Your API key is **never exposed** to the browser.
+
+📖 **For detailed security information, deployment instructions, and troubleshooting, see [SECURITY_SETUP.md](./SECURITY_SETUP.md)**
+
 **Note:** This setup covers two separate forms:
 1. **Order/Checkout Form** (Sections 1-7) - For processing customer orders
 2. **Contact Form** (Section 8) - For handling contact inquiries
@@ -67,10 +73,9 @@ You need to get the Field ID for ALL 7 fields:
 Your `.env` file should look like this:
 
 ```bash
-# Form credentials
-REACT_APP_FILLOUT_FORM_ID=dQdS73JMqcus
-REACT_APP_FILLOUT_API_KEY=your_actual_api_key_here
-
+# ===================================
+# PUBLIC Environment Variables (exposed to browser - safe)
+# ===================================
 # Field IDs - Replace these with actual IDs from your Fillout form
 REACT_APP_FILLOUT_FIELD_FULLNAME=actual_field_id_here
 REACT_APP_FILLOUT_FIELD_EMAIL=actual_field_id_here
@@ -79,7 +84,28 @@ REACT_APP_FILLOUT_FIELD_ADDRESS=actual_field_id_here
 REACT_APP_FILLOUT_FIELD_NOTES=actual_field_id_here
 REACT_APP_FILLOUT_FIELD_CART=actual_field_id_here
 REACT_APP_FILLOUT_FIELD_TOTAL=actual_field_id_here
+
+# Contact Form Field IDs
+REACT_APP_FILLOUT_CONTACT_FIELD_NAME=actual_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_EMAIL=actual_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_PHONE=actual_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_SUBJECT=actual_field_id_here
+REACT_APP_FILLOUT_CONTACT_FIELD_MESSAGE=actual_field_id_here
+
+# ===================================
+# PRIVATE Environment Variables (server-side only - SECURE)
+# ===================================
+# NOTE: These do NOT have REACT_APP_ prefix
+FILLOUT_API_KEY=your_actual_api_key_here
+FILLOUT_FORM_ID=dQdS73JMqcus
+FILLOUT_CONTACT_FORM_ID=your_contact_form_id_here
 ```
+
+**Important Security Notes:**
+- Variables **WITHOUT** `REACT_APP_` prefix stay on the server (secure)
+- Variables **WITH** `REACT_APP_` prefix are exposed to browser (that's okay for field IDs)
+- **Never** add `REACT_APP_` to your API key!
+- See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for more details
 
 **Replace ALL the placeholder values with your actual values!**
 
@@ -130,14 +156,36 @@ Fillout also supports:
 3. Go to checkout and submit an order
 4. Check your Fillout dashboard → **Responses** to see the submission
 
-## 7. Security Best Practices
+## 7. Security & Deployment
 
-⚠️ **Important Security Notes:**
+### ✅ Security Features
 
-- Never commit your `.env` file to Git (it's already in `.gitignore`)
-- Never expose your API key in client-side code (except in environment variables)
-- For production, consider adding server-side price validation
-- Enable Fillout's spam protection in Settings → Security
+This project uses **serverless functions** to keep your API key secure:
+
+- API key stays on the server (never exposed to browser)
+- Forms submit to `/api/submit-order` and `/api/submit-contact`
+- Serverless functions forward requests to Fillout securely
+- See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for full details
+
+### 🚀 Deploying to Vercel
+
+1. Push your code to GitHub
+2. Import to Vercel
+3. Add environment variables in Vercel dashboard:
+   - Go to **Settings** → **Environment Variables**
+   - Add `FILLOUT_API_KEY`, `FILLOUT_FORM_ID`, `FILLOUT_CONTACT_FORM_ID`
+   - Add all `REACT_APP_FILLOUT_FIELD_*` variables
+4. Deploy!
+
+**Note:** Environment variables must be set in both local `.env` and Vercel dashboard.
+
+### ⚠️ Security Best Practices
+
+- ✅ Never commit your `.env` file to Git (it's already in `.gitignore`)
+- ✅ API keys without `REACT_APP_` prefix stay server-side
+- ✅ Field IDs are safe to expose (they're just references)
+- ✅ Enable Fillout's spam protection in Settings → Security
+- ✅ For production, consider adding rate limiting (see SECURITY_SETUP.md)
 
 ## 8. Setting Up the Contact Form (Optional)
 

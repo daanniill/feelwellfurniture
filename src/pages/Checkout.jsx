@@ -94,29 +94,24 @@ function Checkout() {
         ],
       };
 
-      console.log('Submitting to Fillout with field IDs:', fieldIds);
+      console.log('Submitting order to secure API endpoint...');
 
-      // Send to Fillout API
-      const response = await fetch(
-        `https://api.fillout.com/v1/api/forms/${process.env.REACT_APP_FILLOUT_FORM_ID}/submissions`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.REACT_APP_FILLOUT_API_KEY}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      // Send to our secure serverless function (which calls Fillout)
+      const response = await fetch('/api/submit-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        console.error('Fillout API Error:', {
+        console.error('Order submission error:', {
           status: response.status,
-          statusText: response.statusText,
           error: errorData
         });
-        throw new Error(JSON.stringify(errorData) || 'Failed to submit order. Please try again.');
+        throw new Error(errorData.error || 'Failed to submit order. Please try again.');
       }
 
       // Success!
