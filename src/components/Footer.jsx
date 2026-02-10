@@ -60,17 +60,20 @@ export default function Footer() {
           {/* Contact Information */}
           <div className="text-center">
             <a
-              href="tel:888-888-8888"
+              href="tel:+18589770784"
               className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
             >
-              888-888-8888
+              +1 (858) 977-0784
             </a>
             <a
-              href="mailto:sample@gmail.com"
+              href="mailto:contact@feelwellfurniture.com"
               className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors block"
             >
-              sample@gmail.com
+              contact@feelwellfurniture.com
             </a>
+            <p className="text-sm font-gilroy-regular text-gray-600 dark:text-gray-300 mt-1">
+              La Jolla, CA
+            </p>
           </div>
 
           {/* Copyright */}
